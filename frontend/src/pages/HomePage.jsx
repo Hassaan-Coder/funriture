@@ -29,7 +29,7 @@ const HomePage = () => {
       <CategoriesSection2 />
       <CategoriesSection3 />
       {/* <Categories /> */}
-      {/* <BestDeals /> */}
+      <BestDeals />
       {/* <Events /> */}
       {/* <FeaturedProduct /> */}
       <Footer />
