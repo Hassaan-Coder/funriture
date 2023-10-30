@@ -29,8 +29,8 @@ const Cart = ({ setOpenCart }) => {
     <div className="fixed top-0 left-0 w-full bg-[#0000004b] h-screen z-10">
       <div className="fixed top-0 right-0 h-full w-[80%] 800px:w-[25%] bg-white flex flex-col overflow-y-scroll justify-between shadow-sm">
         {cart && cart.length === 0 ? (
-          <div className="w-full h-screen flex items-center justify-center">
-            <div className="flex w-full justify-end pt-5 pr-5 fixed top-3 right-3">
+          <div className="flex items-center justify-center w-full h-screen">
+            <div className="fixed flex justify-end w-full pt-5 pr-5 top-3 right-3">
               <RxCross1
                 size={25}
                 className="cursor-pointer"
@@ -42,7 +42,7 @@ const Cart = ({ setOpenCart }) => {
         ) : (
           <>
             <div>
-              <div className="flex w-full justify-end pt-5 pr-5">
+              <div className="flex justify-end w-full pt-5 pr-5">
                 <RxCross1
                   size={25}
                   className="cursor-pointer"
@@ -112,8 +112,8 @@ const CartSingle = ({ data, quantityChangeHandler, removeFromCartHandler }) => {
   };
 
   return (
-    <div className="border-b p-4">
-      <div className="w-full flex items-center">
+    <div className="p-4 border-b">
+      <div className="flex items-center w-full">
         <div>
           <div
             className={`bg-[#e44343] border border-[#e4434373] rounded-full w-[25px] h-[25px] ${styles.noramlFlex} justify-center cursor-pointer`}
@@ -137,10 +137,10 @@ const CartSingle = ({ data, quantityChangeHandler, removeFromCartHandler }) => {
         <div className="pl-[5px]">
           <h1>{data.name}</h1>
           <h4 className="font-[400] text-[15px] text-[#00000082]">
-            ${data.discountPrice} * {value}
+            RS {data.discountPrice} * {value}
           </h4>
           <h4 className="font-[600] text-[17px] pt-[3px] text-[#d02222] font-Roboto">
-            US${totalPrice}
+            RS {totalPrice}
           </h4>
         </div>
         <RxCross1
