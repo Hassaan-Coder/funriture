@@ -23,7 +23,7 @@ export const VideosSection2 = () => {
               loop
               controls={false}
               width="100%"
-              height="388.9%"
+              height="118%"
             />
           </Link>
           <h3 className="font-extrabold">Center Tables</h3>
@@ -41,7 +41,7 @@ export const VideosSection2 = () => {
               loop
               controls={false}
               width="100%"
-              height="123.5%"
+              height="213.5%"
             />
           </Link>
           <h3 className="font-extrabold">COFFEE TABLES</h3>
@@ -61,7 +61,7 @@ export const VideosSection2 = () => {
               loop
               controls={false}
               width="100%"
-              height="175.56%"
+              height="119.56%"
             />
           </Link>
           <h3 className="font-extrabold">COFFEE CHAIRS</h3>
@@ -79,7 +79,7 @@ export const VideosSection2 = () => {
               loop
               controls={false}
               width="100%"
-              height="123.9%"
+              height="119.9%"
             />
           </Link>
           {/* <h3 className="font-extrabold">Our Designs</h3> */}
