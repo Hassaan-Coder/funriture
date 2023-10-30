@@ -16,8 +16,6 @@ import { useSelector } from "react-redux";
 import Cart from "../cart/Cart";
 import Wishlist from "../Wishlist/Wishlist";
 import { RxCross1 } from "react-icons/rx";
-import logo3 from "../../Assests/logo3.png";
-import logo4 from "../../Assests/logo4.png";
 
 const Header = ({ activeHeading }) => {
   const { isAuthenticated, user } = useSelector((state) => state.user);
@@ -88,9 +86,7 @@ const Header = ({ activeHeading }) => {
       setActive(false);
     }
   });
-  const toggleSearch = () => {
-    setActive(false);
-  };
+
   return (
     <>
       <div className={`${styles.section}`}>
@@ -113,7 +109,7 @@ const Header = ({ activeHeading }) => {
               placeholder="Search Product..."
               value={searchTerm}
               onChange={handleSearchChange}
-              className={`h-[40px] w-full px-2 border-[#000000] border-[2px] rounded-md ${
+              className={`h-[40px] w-full px-2 border-[#000000] border-[2px]  rounded-3xl ${
                 searchOpen ? "" : "disabled"
               }`}
               ref={searchInputRef}
@@ -163,7 +159,7 @@ const Header = ({ activeHeading }) => {
       <div
         className={`${
           active === true ? "shadow-sm fixed top-0 left-0 z-10" : null
-        } transition hidden 800px:flex items-center justify-between w-full bg-[#000000] h-[70px]`}
+        } transition hidden 800px:flex items-center justify-between w-full bg-[#504f4f] h-[70px]`}
       >
         <div
           className={`${styles.section} relative ${styles.noramlFlex} justify-between`}
@@ -202,7 +198,7 @@ const Header = ({ activeHeading }) => {
                 onClick={() => setOpenWishlist(true)}
               >
                 <AiOutlineHeart size={30} color="rgb(255 255 255 / 83%)" />
-                <span className="absolute right-0 top-0 rounded-full bg-[#3bc177] w-4 h-4 top right p-0 m-0 text-white font-mono text-[12px] leading-tight text-center">
+                <span className="absolute right-0 top-0 rounded-full bg-[#898f8c]  w-4 h-4 top right p-0 m-0 text-white font-mono text-[12px] leading-tight text-center">
                   {wishlist && wishlist.length}
                 </span>
               </div>
@@ -217,7 +213,7 @@ const Header = ({ activeHeading }) => {
                   size={30}
                   color="rgb(255 255 255 / 83%)"
                 />
-                <span className="absolute right-0 top-0 rounded-full bg-[#3bc177] w-4 h-4 top right p-0 m-0 text-white font-mono text-[12px] leading-tight text-center">
+                <span className="absolute right-0 top-0 rounded-full bg-[#898f8c]  w-4 h-4 top right p-0 m-0 text-white font-mono text-[12px] leading-tight text-center">
                   {cart && cart.length}
                 </span>
               </div>
@@ -257,7 +253,7 @@ const Header = ({ activeHeading }) => {
         className={`${
           active === true ? "shadow-sm fixed top-0 left-0 z-10" : null
         }
-      w-full h-[60px] bg-[#fff] z-50 top-0 left-0 shadow-sm 800px:hidden`}
+      w-full h-[80px] bg-[#ffffff] z-50 top-0 left-0 shadow-sm 800px:hidden`}
       >
         <div className="flex items-center justify-between w-full">
           <div>
@@ -270,9 +266,9 @@ const Header = ({ activeHeading }) => {
           <div>
             <Link to="/">
               <img
-                srv="https://res.cloudinary.com/dejass0mo/image/upload/v1697727871/b7f6042a-f088-421f-b143-1fde69b6c0ad_ozar4c.jpg"
+                src="https://res.cloudinary.com/dejass0mo/image/upload/v1698416216/WhatsApp_Image_2023-10-27_at_18.56.09_f57182b7_ieq1d9.jpg"
                 alt=""
-                className="mt-3 cursor-pointer"
+                className="h-20 mb-2 cursor-pointer w-80"
               />
             </Link>
           </div>
@@ -282,7 +278,7 @@ const Header = ({ activeHeading }) => {
               onClick={() => setOpenCart(true)}
             >
               <AiOutlineShoppingCart size={30} />
-              <span class="absolute right-0 top-0 rounded-full bg-[#3bc177] w-4 h-4 top right p-0 m-0 text-white font-mono text-[12px]  leading-tight text-center">
+              <span class="absolute right-0 top-0 rounded-full bg-[#898f8c]  w-4 h-4 top right p-0 m-0 text-white font-mono text-[12px]  leading-tight text-center">
                 {cart && cart.length}
               </span>
             </div>
@@ -307,7 +303,7 @@ const Header = ({ activeHeading }) => {
                     onClick={() => setOpenWishlist(true) || setOpen(false)}
                   >
                     <AiOutlineHeart size={30} className="mt-5 ml-3" />
-                    <span class="absolute right-0 top-0 rounded-full bg-[#3bc177] w-4 h-4 top right p-0 m-0 text-white font-mono text-[12px]  leading-tight text-center">
+                    <span class="absolute right-0 top-0 rounded-full bg-[#898f8c] w-4 h-4 top right p-0 m-0 text-white font-mono text-[12px]  leading-tight text-center">
                       {wishlist && wishlist.length}
                     </span>
                   </div>
@@ -328,7 +324,7 @@ const Header = ({ activeHeading }) => {
                   onChange={handleSearchChange}
                 />
                 {searchData && (
-                  <div className="absolute bg-[#fff] z-10 shadow w-full left-0 p-3">
+                  <div className="absolute bg-[#9c8e8e] z-10 shadow w-full left-0 p-3">
                     {searchData.map((i) => {
                       const d = i.name;
 

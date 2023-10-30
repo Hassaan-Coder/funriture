@@ -30,12 +30,12 @@ export const HeroVideoBS = () => {
         </h2>
       </div>
 
-      <button
+      {/* <button
         // onClick={() => Navigate("product-listing")}
-        className="shop-now-btn"
+        className="mb-10 shop-now-btn"
       >
         BestSelling
-      </button>
+      </button> */}
     </div>
   );
 };

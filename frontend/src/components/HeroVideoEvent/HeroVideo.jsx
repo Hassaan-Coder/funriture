@@ -26,13 +26,6 @@ export const HeroVideoEvent = () => {
         <h1>"Create Memories, Join the Celebration!"</h1>
         <h2>"Experience Unforgettable Moments with Us!"</h2>
       </div>
-
-      <button
-        // onClick={() => Navigate("product-listing")}
-        className="shop-now-btn"
-      >
-        Check All Events
-      </button>
     </div>
   );
 };

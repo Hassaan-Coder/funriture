@@ -1,20 +1,24 @@
 import React from "react";
 import "./CategoriesSection.css";
+import { Link } from "react-router-dom";
 
 export const CategoriesSection2 = () => {
   // Define a static list of categories
   const staticCategories = [
     {
-      categoryName: "Category 1",
-      img: "https://iwood.pk/wp-content/uploads/2019/05/iwkejnfm.jpg",
+      categoryName: "Dining Table",
+      img: "https://res.cloudinary.com/dke6w49kc/image/upload/v1698649744/311839117_436925375171648_4325178640892282592_n_lj8eza.jpg",
+      link: "/products?category=Dining%20Tables", // Specify the link for Category 1
     },
     {
-      categoryName: "Category 2",
-      img: "https://iwood.pk/wp-content/uploads/2019/05/iwkejnfm.jpg",
+      categoryName: "Console",
+      img: "https://res.cloudinary.com/dke6w49kc/image/upload/v1698650172/OIP_cgizhq.jpg",
+      link: "/products?category=Consoles", // Specify the link for Category 2
     },
     {
-      categoryName: "Category 3",
-      img: "https://iwood.pk/wp-content/uploads/2019/05/iwkejnfm.jpg",
+      categoryName: "Center Table",
+      img: "https://res.cloudinary.com/dke6w49kc/image/upload/v1698650207/R_fkarvd.jpg",
+      link: "/products?category=Center%20Tables", // Specify the link for Category 3
     },
 
     // Add more categories as needed
@@ -24,12 +28,12 @@ export const CategoriesSection2 = () => {
     <div>
       <div className="categories-container">
         {staticCategories.map((category, index) => (
-          <div className="category-card" key={index}>
+          <Link to={category.link} className="category-card" key={index}>
             <h3>{category.categoryName}'s</h3>
             <div className="img-cont">
               <img src={category.img} alt={category.categoryName} />
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>

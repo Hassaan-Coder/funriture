@@ -7,13 +7,13 @@ export const CategoriesSection = () => {
   const staticCategories = [
     {
       categoryName: "Bed Set",
-      img: "https://iwood.pk/wp-content/uploads/2019/05/iwkejnfm.jpg",
-      link: "/category-1", // Specify the link for Category 1
+      img: "https://i.pinimg.com/originals/83/5c/bc/835cbc1e048f65089846fd71572c7990.jpg",
+      link: "/products?category=Bedroom%20sets", // Specify the link for Category 1
     },
     {
       categoryName: "Sofa",
-      img: "https://iwood.pk/wp-content/uploads/2019/05/iwkejnfm.jpg",
-      link: "/category-2", // Specify the link for Category 2
+      img: "https://res.cloudinary.com/dke6w49kc/image/upload/v1698649606/2b995fa9b642120cd5be99af1f1c7707_x2g6cj.jpg",
+      link: "/products?category=Sofa%20Sets", // Specify the link for Category 2
     },
 
     // Add more categories as needed
