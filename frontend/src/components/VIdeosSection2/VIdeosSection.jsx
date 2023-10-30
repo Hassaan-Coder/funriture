@@ -16,7 +16,7 @@ export const VideosSection2 = () => {
             <ReactPlayer
               // onClick={() => navigate("/product-details/26")}
               // url={`${process.env.PUBLIC_URL}/assets/videos/hero-video-1.mp4`}
-              url="https://res.cloudinary.com/dejass0mo/video/upload/v1698415502/pexels-polina-kovaleva-5644364_1080p_tiym6d.mp4"
+              url="https://res.cloudinary.com/dke6w49kc/video/upload/v1698664347/WhatsApp_Video_2023-10-30_at_15.01.54_c01c930a_V1_v3nhls.mp4"
               playing
               playbackRate={1.2}
               muted
@@ -34,7 +34,7 @@ export const VideosSection2 = () => {
             <ReactPlayer
               // onClick={() => navigate("/product-details/39")}
               // url={`${process.env.PUBLIC_URL}/assets/videos/hero-video-2.mp4`}
-              url="https://res.cloudinary.com/dejass0mo/video/upload/v1698393493/290048344_545012660699174_212443051652188018_n_c4dcrb.mp4"
+              url="https://res.cloudinary.com/dke6w49kc/video/upload/v1698661147/WhatsApp_Video_2023-10-28_at_13.24.33_f7d1d72c_V4_hihdws.mp4"
               playing
               playbackRate={1}
               muted
@@ -54,7 +54,7 @@ export const VideosSection2 = () => {
             <ReactPlayer
               // onClick={() => navigate("/product-details/76")}
               // url={`${process.env.PUBLIC_URL}/assets/videos/hero-video-4.mp4`}
-              url="https://res.cloudinary.com/dgj9qdvdv/video/upload/v1697784924/e6fcac4e-b603-4088-8fba-b79084f7e05f_jmeqqf.mp4"
+              url="https://res.cloudinary.com/dke6w49kc/video/upload/v1698661288/WhatsApp_Video_2023-10-30_at_14.49.02_4781c97f_V1_nse5hb.mp4"
               playing
               playbackRate={1.3}
               muted
