@@ -9,7 +9,7 @@ import { CategoriesSection3 } from "../components/CategoriesSection3/CategoriesS
 const Categories = () => {
   return (
     <div>
-      <Header activeHeading={6} />
+      <Header activeHeading={5} />
 
       <CategoriesSection />
       <CategoriesSection2 />

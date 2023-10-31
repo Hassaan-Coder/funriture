@@ -105,7 +105,7 @@ const ProfileContent = ({ active }) => {
           <br />
           <div className="w-full px-5">
             <form onSubmit={handleSubmit} aria-required={true}>
-              <div className="w-full 800px:flex block pb-3">
+              <div className="block w-full pb-3 800px:flex">
                 <div className=" w-[100%] 800px:w-[50%]">
                   <label className="block pb-2">Full Name</label>
                   <input
@@ -128,7 +128,7 @@ const ProfileContent = ({ active }) => {
                 </div>
               </div>
 
-              <div className="w-full 800px:flex block pb-3">
+              <div className="block w-full pb-3 800px:flex">
                 <div className=" w-[100%] 800px:w-[50%]">
                   <label className="block pb-2">Phone Number</label>
                   <input
@@ -267,13 +267,13 @@ const AllOrders = () => {
       row.push({
         id: item._id,
         itemsQty: item.cart.length,
-        total: "US$ " + item.totalPrice,
+        total: "Rs  " + item.totalPrice,
         status: item.status,
       });
     });
 
   return (
-    <div className="pl-8 pt-1">
+    <div className="pt-1 pl-8">
       <DataGrid
         rows={row}
         columns={columns}
@@ -361,7 +361,7 @@ const AllRefundOrders = () => {
     });
 
   return (
-    <div className="pl-8 pt-1">
+    <div className="pt-1 pl-8">
       <DataGrid
         rows={row}
         columns={columns}
@@ -446,7 +446,7 @@ const TrackOrder = () => {
     });
 
   return (
-    <div className="pl-8 pt-1">
+    <div className="pt-1 pl-8">
       <DataGrid
         rows={row}
         columns={columns}
@@ -594,7 +594,7 @@ const Address = () => {
       {open && (
         <div className="fixed w-full h-screen bg-[#0000004b] top-0 left-0 flex items-center justify-center ">
           <div className="w-[35%] h-[80vh] bg-white rounded shadow relative overflow-y-scroll">
-            <div className="w-full flex justify-end p-3">
+            <div className="flex justify-end w-full p-3">
               <RxCross1
                 size={30}
                 className="cursor-pointer"
@@ -606,7 +606,7 @@ const Address = () => {
             </h1>
             <div className="w-full">
               <form aria-required onSubmit={handleSubmit} className="w-full">
-                <div className="w-full block p-4">
+                <div className="block w-full p-4">
                   <div className="w-full pb-2">
                     <label className="block pb-2">Country</label>
                     <select
@@ -616,7 +616,7 @@ const Address = () => {
                       onChange={(e) => setCountry(e.target.value)}
                       className="w-[95%] border h-[40px] rounded-[5px]"
                     >
-                      <option value="" className="block border pb-2">
+                      <option value="" className="block pb-2 border">
                         choose your country
                       </option>
                       {Country &&
@@ -641,7 +641,7 @@ const Address = () => {
                       onChange={(e) => setCity(e.target.value)}
                       className="w-[95%] border h-[40px] rounded-[5px]"
                     >
-                      <option value="" className="block border pb-2">
+                      <option value="" className="block pb-2 border">
                         choose your city
                       </option>
                       {State &&
@@ -698,7 +698,7 @@ const Address = () => {
                       onChange={(e) => setAddressType(e.target.value)}
                       className="w-[95%] border h-[40px] rounded-[5px]"
                     >
-                      <option value="" className="block border pb-2">
+                      <option value="" className="block pb-2 border">
                         Choose your Address Type
                       </option>
                       {addressTypeData &&
@@ -714,7 +714,7 @@ const Address = () => {
                     </select>
                   </div>
 
-                  <div className=" w-full pb-2">
+                  <div className="w-full pb-2 ">
                     <input
                       type="submit"
                       className={`${styles.input} mt-5 cursor-pointer`}
@@ -728,7 +728,7 @@ const Address = () => {
           </div>
         </div>
       )}
-      <div className="flex w-full items-center justify-between">
+      <div className="flex items-center justify-between w-full">
         <h1 className="text-[25px] font-[600] text-[#000000ba] pb-2">
           My Addresses
         </h1>
@@ -749,12 +749,12 @@ const Address = () => {
             <div className="flex items-center">
               <h5 className="pl-5 font-[600]">{item.addressType}</h5>
             </div>
-            <div className="pl-8 flex items-center">
+            <div className="flex items-center pl-8">
               <h6 className="text-[12px] 800px:text-[unset]">
                 {item.address1} {item.address2}
               </h6>
             </div>
-            <div className="pl-8 flex items-center">
+            <div className="flex items-center pl-8">
               <h6 className="text-[12px] 800px:text-[unset]">
                 {user && user.phoneNumber}
               </h6>

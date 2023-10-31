@@ -76,10 +76,10 @@ const Cart = ({ setOpenCart }) => {
               {/* checkout buttons */}
               <Link to="/checkout">
                 <div
-                  className={`h-[45px] flex items-center justify-center w-[100%] bg-[#e44343] rounded-[5px]`}
+                  className={`h-[45px] flex items-center justify-center w-[100%] bg-[#181717] rounded-[5px]`}
                 >
                   <h1 className="text-[#fff] text-[18px] font-[600]">
-                    Checkout Now (USD${totalPrice})
+                    Checkout Now (RS {totalPrice})
                   </h1>
                 </div>
               </Link>
@@ -116,7 +116,7 @@ const CartSingle = ({ data, quantityChangeHandler, removeFromCartHandler }) => {
       <div className="flex items-center w-full">
         <div>
           <div
-            className={`bg-[#e44343] border border-[#e4434373] rounded-full w-[25px] h-[25px] ${styles.noramlFlex} justify-center cursor-pointer`}
+            className={`bg-[#2b2b2b]  border border-[#00000073] rounded-full w-[25px] h-[25px] ${styles.noramlFlex} justify-center cursor-pointer`}
             onClick={() => increment(data)}
           >
             <HiPlus size={18} color="#fff" />
@@ -132,14 +132,14 @@ const CartSingle = ({ data, quantityChangeHandler, removeFromCartHandler }) => {
         <img
           src={`${data?.images[0]?.url}`}
           alt=""
-          className="w-[130px] h-min ml-2 mr-2 rounded-[5px]"
+          className="w-[130px] h-min ml-3 mr-3 rounded-md"
         />
         <div className="pl-[5px]">
-          <h1>{data.name}</h1>
+          <h1 className="mb-5 font-semibold font-Poppins">{data.name}</h1>
           <h4 className="font-[400] text-[15px] text-[#00000082]">
             RS {data.discountPrice} * {value}
           </h4>
-          <h4 className="font-[600] text-[17px] pt-[3px] text-[#d02222] font-Roboto">
+          <h4 className="font-[700] text-[17px] pt-[3px] text-[#181818] font-Roboto">
             RS {totalPrice}
           </h4>
         </div>

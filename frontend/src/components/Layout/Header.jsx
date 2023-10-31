@@ -194,11 +194,11 @@ const Header = ({ activeHeading }) => {
           <div className="flex">
             <div className={`${styles.noramlFlex}`}>
               <div
-                className="relative cursor-pointer mr-[15px]"
+                className="relative cursor-pointer mr-[19px]"
                 onClick={() => setOpenWishlist(true)}
               >
-                <AiOutlineHeart size={30} color="rgb(255 255 255 / 83%)" />
-                <span className="absolute right-0 top-0 rounded-full bg-[#898f8c]  w-4 h-4 top right p-0 m-0 text-white font-mono text-[12px] leading-tight text-center">
+                <AiOutlineHeart size={36} color="rgb(255 255 255 / 83%)" />
+                <span className="absolute right-0 top-0 rounded-full bg-[#fafafa]  w-4 h-4 top right p-0 m-0 text-[#000]  font-extrabold text-[14px] leading-tight text-center">
                   {wishlist && wishlist.length}
                 </span>
               </div>
@@ -206,14 +206,14 @@ const Header = ({ activeHeading }) => {
 
             <div className={`${styles.noramlFlex}`}>
               <div
-                className="relative cursor-pointer mr-[15px]"
+                className="relative cursor-pointer mr-[19px]"
                 onClick={() => setOpenCart(true)}
               >
                 <AiOutlineShoppingCart
-                  size={30}
+                  size={36}
                   color="rgb(255 255 255 / 83%)"
                 />
-                <span className="absolute right-0 top-0 rounded-full bg-[#898f8c]  w-4 h-4 top right p-0 m-0 text-white font-mono text-[12px] leading-tight text-center">
+                <span className="absolute right-0 top-0 rounded-full bg-[#fcfffd]  w-4 h-4 top right p-0 m-0 text-[#000]  font-extrabold text-[14px] leading-tight text-center">
                   {cart && cart.length}
                 </span>
               </div>

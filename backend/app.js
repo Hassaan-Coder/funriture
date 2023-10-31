@@ -7,8 +7,7 @@ const cors = require("cors");
 
 app.use(
   cors({
-    origin: ["https://interior-teal-theta.vercel.app"],
-    // origin: "http://localhost:3000",
+    origin: ["https://interior-teal-theta.vercel.app", "http://localhost:3000"],
     credentials: true,
   })
 );

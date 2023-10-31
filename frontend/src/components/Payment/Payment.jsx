@@ -55,7 +55,7 @@ const Payment = () => {
     cart: orderData?.cart,
     shippingAddress: orderData?.shippingAddress,
     user: user && user,
-    totalPrice: orderData?.totalPrice,
+    totalPrice: orderData?.subTotalPrice,
   };
 
   const onApprove = async (data, actions) => {
@@ -96,7 +96,7 @@ const Payment = () => {
   };
 
   const paymentData = {
-    amount: Math.round(orderData?.totalPrice * 100),
+    amount: Math.round(orderData?.subTotalPrice * 100),
   };
 
   const paymentHandler = async (e) => {
@@ -176,7 +176,7 @@ const Payment = () => {
   };
 
   return (
-    <div className="w-full flex flex-col items-center py-8">
+    <div className="flex flex-col items-center w-full py-8">
       <div className="w-[90%] 1000px:w-[70%] block 800px:flex">
         <div className="w-full 800px:w-[65%]">
           <PaymentInfo
@@ -216,7 +216,7 @@ const PaymentInfo = ({
 
       {/* cash on delivery */}
       <div>
-        <div className="flex w-full pb-5 border-b mb-2">
+        <div className="flex w-full pb-5 mb-2 border-b">
           <div
             className="w-[25px] h-[25px] rounded-full bg-transparent border-[3px] border-[#1d1a1ab4] relative flex items-center justify-center"
             onClick={() => setSelect(3)}
@@ -232,7 +232,7 @@ const PaymentInfo = ({
 
         {/* cash on delivery */}
         {select === 3 ? (
-          <div className="w-full flex">
+          <div className="flex w-full">
             <form className="w-full" onSubmit={cashOnDeliveryHandler}>
               <input
                 type="submit"
@@ -253,22 +253,26 @@ const CartData = ({ orderData }) => {
     <div className="w-full bg-[#fff] rounded-md p-5 pb-8">
       <div className="flex justify-between">
         <h3 className="text-[16px] font-[400] text-[#000000a4]">subtotal:</h3>
-        <h5 className="text-[18px] font-[600]">${orderData?.subTotalPrice}</h5>
+        <h5 className="text-[18px] font-[600]">
+          RS {orderData?.subTotalPrice}
+        </h5>
       </div>
       <br />
       <div className="flex justify-between">
         <h3 className="text-[16px] font-[400] text-[#000000a4]">shipping:</h3>
-        <h5 className="text-[18px] font-[600]">${shipping}</h5>
+        <h5 className="text-[18px] font-[600] mr-4 ml-12 text-[#000000a4]">
+          We will call you in 24hrs then select shipping charges
+        </h5>{" "}
       </div>
       <br />
-      <div className="flex justify-between border-b pb-3">
+      <div className="flex justify-between pb-3 border-b">
         <h3 className="text-[16px] font-[400] text-[#000000a4]">Discount:</h3>
         <h5 className="text-[18px] font-[600]">
-          {orderData?.discountPrice ? "$" + orderData.discountPrice : "-"}
+          {orderData?.discountPrice ? "Rs " + orderData.discountPrice : "-"}
         </h5>
       </div>
       <h5 className="text-[18px] font-[600] text-end pt-3">
-        ${orderData?.totalPrice}
+        Rs {orderData?.subTotalPrice}
       </h5>
       <br />
     </div>

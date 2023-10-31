@@ -6,7 +6,7 @@ import styles from "../styles/styles";
 const FAQPage = () => {
   return (
     <div>
-      <Header activeHeading={5} />
+      <Header activeHeading={4} />
       <Faq />
       <Footer />
     </div>
@@ -26,11 +26,11 @@ const Faq = () => {
 
   return (
     <div className={`${styles.section} my-8`}>
-      <h2 className="text-3xl font-bold text-gray-900 mb-8">FAQ</h2>
+      <h2 className="mb-8 text-3xl font-bold text-gray-900">FAQ</h2>
       <div className="mx-auto space-y-4">
         {/* single Faq */}
 
-        <div className="border-b border-gray-200 pb-4">
+        <div className="pb-4 border-b border-gray-200">
           <button
             className="flex items-center justify-between w-full"
             onClick={() => toggleTab(2)}
@@ -40,7 +40,7 @@ const Faq = () => {
             </span>
             {activeTab === 2 ? (
               <svg
-                className="h-6 w-6 text-gray-500"
+                className="w-6 h-6 text-gray-500"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -54,7 +54,7 @@ const Faq = () => {
               </svg>
             ) : (
               <svg
-                className="h-6 w-6 text-gray-500"
+                className="w-6 h-6 text-gray-500"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -80,7 +80,7 @@ const Faq = () => {
           )}
         </div>
 
-        <div className="border-b border-gray-200 pb-4">
+        <div className="pb-4 border-b border-gray-200">
           <button
             className="flex items-center justify-between w-full"
             onClick={() => toggleTab(3)}
@@ -90,7 +90,7 @@ const Faq = () => {
             </span>
             {activeTab === 3 ? (
               <svg
-                className="h-6 w-6 text-gray-500"
+                className="w-6 h-6 text-gray-500"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -104,7 +104,7 @@ const Faq = () => {
               </svg>
             ) : (
               <svg
-                className="h-6 w-6 text-gray-500"
+                className="w-6 h-6 text-gray-500"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -129,7 +129,7 @@ const Faq = () => {
           )}
         </div>
 
-        <div className="border-b border-gray-200 pb-4">
+        <div className="pb-4 border-b border-gray-200">
           <button
             className="flex items-center justify-between w-full"
             onClick={() => toggleTab(4)}
@@ -139,7 +139,7 @@ const Faq = () => {
             </span>
             {activeTab === 4 ? (
               <svg
-                className="h-6 w-6 text-gray-500"
+                className="w-6 h-6 text-gray-500"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -153,7 +153,7 @@ const Faq = () => {
               </svg>
             ) : (
               <svg
-                className="h-6 w-6 text-gray-500"
+                className="w-6 h-6 text-gray-500"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -178,7 +178,7 @@ const Faq = () => {
           )}
         </div>
 
-        <div className="border-b border-gray-200 pb-4">
+        <div className="pb-4 border-b border-gray-200">
           <button
             className="flex items-center justify-between w-full"
             onClick={() => toggleTab(5)}
@@ -188,7 +188,7 @@ const Faq = () => {
             </span>
             {activeTab === 5 ? (
               <svg
-                className="h-6 w-6 text-gray-500"
+                className="w-6 h-6 text-gray-500"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -202,7 +202,7 @@ const Faq = () => {
               </svg>
             ) : (
               <svg
-                className="h-6 w-6 text-gray-500"
+                className="w-6 h-6 text-gray-500"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -228,7 +228,7 @@ const Faq = () => {
           )}
         </div>
 
-        <div className="border-b border-gray-200 pb-4">
+        <div className="pb-4 border-b border-gray-200">
           <button
             className="flex items-center justify-between w-full"
             onClick={() => toggleTab(6)}
@@ -238,7 +238,7 @@ const Faq = () => {
             </span>
             {activeTab === 6 ? (
               <svg
-                className="h-6 w-6 text-gray-500"
+                className="w-6 h-6 text-gray-500"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -252,7 +252,7 @@ const Faq = () => {
               </svg>
             ) : (
               <svg
-                className="h-6 w-6 text-gray-500"
+                className="w-6 h-6 text-gray-500"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -275,7 +275,7 @@ const Faq = () => {
           )}
         </div>
 
-        <div className="border-b border-gray-200 pb-4">
+        <div className="pb-4 border-b border-gray-200">
           <button
             className="flex items-center justify-between w-full"
             onClick={() => toggleTab(7)}
@@ -285,7 +285,7 @@ const Faq = () => {
             </span>
             {activeTab === 7 ? (
               <svg
-                className="h-6 w-6 text-gray-500"
+                className="w-6 h-6 text-gray-500"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -299,7 +299,7 @@ const Faq = () => {
               </svg>
             ) : (
               <svg
-                className="h-6 w-6 text-gray-500"
+                className="w-6 h-6 text-gray-500"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
