@@ -10,11 +10,10 @@ export const HeroVideoProduct = () => {
     <div className="hero-video-container">
       <div className="hero-video">
         <ReactPlayer
-          // url="https://video-previews.elements.envatousercontent.com/h264-video-previews/4301f399-4397-465c-81ff-a243bfb08def/36550911.mp4"
           playing
-          url="https://video-previews.elements.envatousercontent.com/h264-video-previews/6e2d5a34-73a4-4fe2-a713-0136994859f5/22011215.mp4"
+          url="https://video-previews.elements.envatousercontent.com/h264-video-previews/46d37af1-9507-410b-a36d-f222377e6a47/32051156.mp4          
+          "
           playbackRate={1.5}
-          // url="https://video-previews.elements.envatousercontent.com/h264-video-previews/6e2d5a34-73a4-4fe2-a713-0136994859f5/22011215.mp4"
           muted
           loop
           controls={false}
