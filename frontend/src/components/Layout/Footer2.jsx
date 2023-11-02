@@ -5,6 +5,8 @@ import {
   AiFillYoutube,
   AiOutlineTwitter,
 } from "react-icons/ai";
+import { MdFacebook } from "react-icons/md";
+import { TfiInstagram } from "react-icons/tfi";
 import { Link } from "react-router-dom";
 
 const Footer2 = () => {
@@ -27,20 +29,23 @@ const Footer2 = () => {
             />
             <br />
             <p>The home and elements needeed to create beautiful products.</p>
-            <div className="flex items-center mt-[15px]">
-              <AiFillFacebook size={25} className="cursor-pointer" />
-              <AiOutlineTwitter
-                size={25}
-                style={{ marginLeft: "15px", cursor: "pointer" }}
-              />
-              <AiFillInstagram
-                size={25}
-                style={{ marginLeft: "15px", cursor: "pointer" }}
-              />
-              <AiFillYoutube
-                size={25}
-                style={{ marginLeft: "15px", cursor: "pointer" }}
-              />
+            <div className="flex  items-center mt-[15px]">
+              <a
+                href="https://www.facebook.com/Interiorimpressionsofficial"
+                target="_blank"
+              >
+                <MdFacebook size={49} className="cursor-pointer" />
+              </a>
+
+              <a
+                href="https://www.instagram.com/interiorimpressionsofficial"
+                target="_blank"
+              >
+                <TfiInstagram
+                  size={45}
+                  style={{ marginLeft: "25px", cursor: "pointer" }}
+                />
+              </a>
             </div>
           </ul>
         </div>
