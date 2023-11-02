@@ -86,7 +86,7 @@ const Header = ({ activeHeading }) => {
       setActive(false);
     }
   });
-
+  //
   return (
     <>
       <div className={`${styles.section}`}>
@@ -97,7 +97,7 @@ const Header = ({ activeHeading }) => {
                 <img
                   src="https://res.cloudinary.com/dejass0mo/image/upload/v1698416216/WhatsApp_Image_2023-10-27_at_18.56.09_f57182b7_ieq1d9.jpg"
                   alt=""
-                  className="w-40 h-20 scale-150 scale-y-110 rounded-lg scale-x-350"
+                  className="w-48 h-20 scale-150 scale-y-110 rounded-lg"
                 />
               </div>
             </Link>
