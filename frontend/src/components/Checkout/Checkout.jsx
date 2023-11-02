@@ -103,8 +103,8 @@ const Checkout = () => {
   const discountPercentenge = couponCodeData ? discountPrice : "";
 
   const totalPrice = couponCodeData
-    ? (subTotalPrice + shipping - discountPercentenge).toFixed(2)
-    : (subTotalPrice + shipping).toFixed(2);
+    ? (subTotalPrice - discountPercentenge).toFixed(2)
+    : subTotalPrice.toFixed(2);
 
   console.log(discountPercentenge);
 
@@ -321,9 +321,7 @@ const CartData = ({
           - {discountPercentenge ? "RS" + discountPercentenge.toString() : null}
         </h5>
       </div>
-      <h5 className="text-[18px] font-[600] text-end pt-3">
-        RS {subTotalPrice}
-      </h5>
+      <h5 className="text-[18px] font-[600] text-end pt-3">RS {totalPrice}</h5>
       <br />
       <form onSubmit={handleSubmit}>
         <input

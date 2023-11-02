@@ -11,8 +11,7 @@ export const HeroVideoProduct = () => {
       <div className="hero-video">
         <ReactPlayer
           playing
-          url="https://video-previews.elements.envatousercontent.com/h264-video-previews/46d37af1-9507-410b-a36d-f222377e6a47/32051156.mp4          
-          "
+          url="https://video-previews.elements.envatousercontent.com/h264-video-previews/42748a63-3df1-41c5-a8ce-3f11f553ed19/40672124.mp4"
           playbackRate={1.5}
           muted
           loop

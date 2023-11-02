@@ -138,7 +138,7 @@ const UserOrderDetails = () => {
               <div>
                 <div className="pl-3 text-[20px]">{selectedItem?.name}</div>
                 <h4 className="pl-3 text-[20px]">
-                  RS {selectedItem?.discountPrice} x {selectedItem?.qty}
+                  US${selectedItem?.discountPrice} x {selectedItem?.qty}
                 </h4>
               </div>
             </div>
@@ -202,7 +202,7 @@ const UserOrderDetails = () => {
 
       <div className="w-full text-right border-t">
         <h5 className="pt-3 text-[18px]">
-          Total Price: <strong> Rs {data?.totalPrice}</strong>
+          Total Price: <strong> RS {data?.totalPrice}</strong>
         </h5>
       </div>
       <br />

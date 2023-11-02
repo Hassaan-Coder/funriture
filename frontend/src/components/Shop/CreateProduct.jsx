@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { createProduct } from "../../redux/actions/product";
 import { categoriesData } from "../../static/data";
 import { toast } from "react-toastify";
+import { FaTrash } from "react-icons/fa"; // Add the Trash icon
 
 const CreateProduct = () => {
   const { seller } = useSelector((state) => state.seller);
@@ -48,7 +49,20 @@ const CreateProduct = () => {
       reader.readAsDataURL(file);
     });
   };
+  const removeImage = (index) => {
+    const newImages = [...images];
+    newImages.splice(index, 1);
+    setImages(newImages);
+  };
 
+  // Move image reorder logic here for Kanban-style reordering
+  const handleImageReorder = (dragIndex, hoverIndex) => {
+    const updatedImages = [...images];
+    const dragImage = updatedImages[dragIndex];
+    updatedImages.splice(dragIndex, 1);
+    updatedImages.splice(hoverIndex, 0, dragImage);
+    setImages(updatedImages);
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -83,7 +97,6 @@ const CreateProduct = () => {
   return (
     <div className="w-[90%] 800px:w-[50%] bg-white  shadow h-[80vh] rounded-[4px] p-3 overflow-y-scroll">
       <h5 className="text-[30px] font-Poppins text-center">Create Product</h5>
-      {/* create product form */}
       <form onSubmit={handleSubmit}>
         <br />
         <div>
@@ -200,18 +213,44 @@ const CreateProduct = () => {
             multiple
             onChange={handleImageChange}
           />
-          <div className="w-full flex items-center flex-wrap">
+          <div className="flex flex-wrap items-center w-full">
             <label htmlFor="upload">
               <AiOutlinePlusCircle size={30} className="mt-3" color="#555" />
             </label>
             {images &&
-              images.map((i) => (
-                <img
-                  src={i}
-                  key={i}
-                  alt=""
-                  className="h-[120px] w-[120px] object-cover m-2"
-                />
+              images.map((image, index) => (
+                <div
+                  key={index}
+                  className="relative"
+                  draggable
+                  onDragStart={(e) => {
+                    e.dataTransfer.setData("dragIndex", index);
+                  }}
+                  onDragOver={(e) => {
+                    e.preventDefault();
+                  }}
+                  onDrop={(e) => {
+                    e.preventDefault();
+                    const dragIndex = Number(
+                      e.dataTransfer.getData("dragIndex")
+                    );
+                    if (dragIndex !== index) {
+                      handleImageReorder(dragIndex, index);
+                    }
+                  }}
+                >
+                  <img
+                    src={image}
+                    alt=""
+                    className="h-[120px] w-[120px] object-cover m-2 rounded-lg"
+                  />
+                  <button
+                    className="absolute p-1 text-white bg-red-500 rounded-full top-2 right-2"
+                    onClick={() => removeImage(index)}
+                  >
+                    <FaTrash />
+                  </button>
+                </div>
               ))}
           </div>
           <br />

@@ -101,7 +101,6 @@ const CreateEvent = () => {
 
   return (
     <div className="w-[90%] 800px:w-[50%] bg-white  shadow h-[80vh] rounded-[4px] p-3 overflow-y-scroll">
-      <h5 className="text-[30px] font-Poppins text-center">Create Event</h5>
       {/* create event form */}
       <form onSubmit={handleSubmit}>
         <br />
@@ -251,7 +250,7 @@ const CreateEvent = () => {
             multiple
             onChange={handleImageChange}
           />
-          <div className="w-full flex items-center flex-wrap">
+          <div className="flex flex-wrap items-center w-full">
             <label htmlFor="upload">
               <AiOutlinePlusCircle size={30} className="mt-3" color="#555" />
             </label>

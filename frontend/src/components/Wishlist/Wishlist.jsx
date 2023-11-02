@@ -6,7 +6,6 @@ import { AiOutlineHeart } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import { removeFromWishlist } from "../../redux/actions/wishlist";
 import { addTocart } from "../../redux/actions/cart";
-import { toast } from "react-toastify";
 
 const Wishlist = ({ setOpenWishlist }) => {
   const { wishlist } = useSelector((state) => state.wishlist);
@@ -14,18 +13,12 @@ const Wishlist = ({ setOpenWishlist }) => {
 
   const removeFromWishlistHandler = (data) => {
     dispatch(removeFromWishlist(data));
-    toast.error("removed from wishlist!", {
-      autoClose: 1500,
-    });
   };
 
   const addToCartHandler = (data) => {
     const newData = { ...data, qty: 1 };
     dispatch(addTocart(newData));
     setOpenWishlist(false);
-    toast.success("Added to cart!", {
-      autoClose: 1500,
-    });
   };
 
   return (
@@ -95,19 +88,19 @@ const CartSingle = ({ data, removeFromWishlistHandler, addToCartHandler }) => {
         <img
           src={`${data?.images[0]?.url}`}
           alt=""
-          className="w-[130px] h-min ml-3 mr-3 rounded-md"
+          className="w-[130px] h-min ml-2 mr-2 rounded-[5px]"
         />
 
         <div className="pl-[5px]">
-          <h1 className="font-semibold font-Poppins">{data.name}</h1>
-          <h4 className="font-[600] pt-3 800px:pt-[3px] text-[17px] text-[#000000] font-Roboto">
-            RS {totalPrice}
+          <h1>{data.name}</h1>
+          <h4 className="font-[600] pt-3 800px:pt-[3px] text-[17px] text-[#d02222] font-Roboto">
+            RS{totalPrice}
           </h4>
         </div>
         <div>
           <BsCartPlus
-            size={24}
-            className="mb-4 ml-4 mr-6 cursor-pointer"
+            size={20}
+            className="cursor-pointer"
             tile="Add to cart"
             onClick={() => addToCartHandler(data)}
           />

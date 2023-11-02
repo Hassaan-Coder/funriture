@@ -46,12 +46,12 @@ const AdminDashboardOrders = () => {
       flex: 0.8,
     },
     {
-      field: "createdAt",
-      headerName: "Order Date",
-      type: "number",
-      minWidth: 130,
-      flex: 0.8,
-    },
+        field: "createdAt",
+        headerName: "Order Date",
+        type: "number",
+        minWidth: 130,
+        flex: 0.8,
+      },
   ];
 
   const row = [];
@@ -60,15 +60,15 @@ const AdminDashboardOrders = () => {
       row.push({
         id: item._id,
         itemsQty: item?.cart?.reduce((acc, item) => acc + item.qty, 0),
-        total: item?.subTotalPrice + " RS",
+        total: item?.totalPrice + " $",
         status: item?.status,
-        createdAt: item?.createdAt.slice(0, 10),
+        createdAt: item?.createdAt.slice(0,10),
       });
     });
   return (
     <div>
       <AdminHeader />
-      <div className="flex w-full">
+      <div className="w-full flex">
         <div className="flex items-start justify-between w-full">
           <div className="w-[80px] 800px:w-[330px]">
             <AdminSideBar active={2} />

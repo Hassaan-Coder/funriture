@@ -22,13 +22,11 @@
   text-align: center;
   align-self: center;
 }
-/* F6F6F5 */
+
 .hero-text h1 {
   font-size: 3.5em;
   align-self: center;
   font-weight: bold;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  color: "#F6F6F5";
 }
 
 .hero-text h2 {
@@ -37,6 +35,7 @@
   opacity: 0.8;
   font-weight: bold;
 }
+
 .shop-now-btn {
   opacity: 0.9;
   font-weight: bolder;
@@ -70,8 +69,6 @@
     font-size: 6em;
     align-self: center;
     font-weight: bold;
-    margin-bottom: 20px;
-    color: "#F6F6F5";
   }
   .hero-text h2 {
     margin-top: 30px;

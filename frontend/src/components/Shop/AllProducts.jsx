@@ -97,7 +97,7 @@ const AllProducts = () => {
       row.push({
         id: item._id,
         name: item.name,
-        price: "US$ " + item.discountPrice,
+        price: "RS " + item.discountPrice,
         Stock: item.stock,
         sold: item?.sold_out,
       });
@@ -108,7 +108,7 @@ const AllProducts = () => {
       {isLoading ? (
         <Loader />
       ) : (
-        <div className="w-full mx-8 pt-1 mt-10 bg-white">
+        <div className="w-full pt-1 mx-8 mt-10 bg-white">
           <DataGrid
             rows={row}
             columns={columns}

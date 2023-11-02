@@ -1,6 +1,6 @@
 import React from "react";
 import { FiShoppingBag } from "react-icons/fi";
-import {GrWorkshop} from "react-icons/gr";
+import { GrWorkshop } from "react-icons/gr";
 import { RxDashboard } from "react-icons/rx";
 import { CiMoneyBill, CiSettings } from "react-icons/ci";
 import { Link } from "react-router-dom";
@@ -13,8 +13,8 @@ const AdminSideBar = ({ active }) => {
   return (
     <div className="w-full h-[90vh] bg-white shadow-sm overflow-y-scroll sticky top-0 left-0 z-10">
       {/* single item */}
-      <div className="w-full flex items-center p-4">
-        <Link to="/admin/dashboard" className="w-full flex items-center">
+      <div className="flex items-center w-full p-4">
+        <Link to="/admin/dashboard" className="flex items-center w-full">
           <RxDashboard
             size={30}
             color={`${active === 1 ? "crimson" : "#555"}`}
@@ -29,8 +29,8 @@ const AdminSideBar = ({ active }) => {
         </Link>
       </div>
 
-      <div className="w-full flex items-center p-4">
-        <Link to="/admin-orders" className="w-full flex items-center">
+      <div className="flex items-center w-full p-4">
+        <Link to="/admin-orders" className="flex items-center w-full">
           <FiShoppingBag
             size={30}
             color={`${active === 2 ? "crimson" : "#555"}`}
@@ -45,8 +45,8 @@ const AdminSideBar = ({ active }) => {
         </Link>
       </div>
 
-      <div className="w-full flex items-center p-4">
-        <Link to="/admin-sellers" className="w-full flex items-center">
+      <div className="flex items-center w-full p-4">
+        <Link to="/admin-sellers" className="flex items-center w-full">
           <GrWorkshop
             size={30}
             color={`${active === 3 ? "crimson" : "#555"}`}
@@ -61,8 +61,8 @@ const AdminSideBar = ({ active }) => {
         </Link>
       </div>
 
-      <div className="w-full flex items-center p-4">
-        <Link to="/admin-users" className="w-full flex items-center">
+      <div className="flex items-center w-full p-4">
+        <Link to="/admin-users" className="flex items-center w-full">
           <HiOutlineUserGroup
             size={30}
             color={`${active === 4 ? "crimson" : "#555"}`}
@@ -77,12 +77,9 @@ const AdminSideBar = ({ active }) => {
         </Link>
       </div>
 
-      <div className="w-full flex items-center p-4">
-        <Link to="/admin-products" className="w-full flex items-center">
-          <BsHandbag
-            size={30}
-            color={`${active === 5 ? "crimson" : "#555"}`}
-          />
+      <div className="flex items-center w-full p-4">
+        <Link to="/admin-products" className="flex items-center w-full">
+          <BsHandbag size={30} color={`${active === 5 ? "crimson" : "#555"}`} />
           <h5
             className={`hidden 800px:block pl-2 text-[18px] font-[400] ${
               active === 5 ? "text-[crimson]" : "text-[#555]"
@@ -93,29 +90,8 @@ const AdminSideBar = ({ active }) => {
         </Link>
       </div>
 
-      <div className="w-full flex items-center p-4">
-        <Link to="/admin-events" className="w-full flex items-center">
-          <MdOutlineLocalOffer
-            size={30}
-            color={`${active === 6 ? "crimson" : "#555"}`}
-          />
-          <h5
-            className={`hidden 800px:block pl-2 text-[18px] font-[400] ${
-              active === 6 ? "text-[crimson]" : "text-[#555]"
-            }`}
-          >
-            All Events
-          </h5>
-        </Link>
-      </div>
-
-
-
-      <div className="w-full flex items-center p-4">
-        <Link
-          to="/admin-withdraw-request"
-          className="w-full flex items-center"
-        >
+      <div className="flex items-center w-full p-4">
+        <Link to="/admin-withdraw-request" className="flex items-center w-full">
           <CiMoneyBill
             size={30}
             color={`${active === 7 ? "crimson" : "#555"}`}
@@ -130,11 +106,8 @@ const AdminSideBar = ({ active }) => {
         </Link>
       </div>
 
-      <div className="w-full flex items-center p-4">
-        <Link
-          to="/profile"
-          className="w-full flex items-center"
-        >
+      <div className="flex items-center w-full p-4">
+        <Link to="/profile" className="flex items-center w-full">
           <AiOutlineSetting
             size={30}
             color={`${active === 8 ? "crimson" : "#555"}`}
@@ -148,7 +121,6 @@ const AdminSideBar = ({ active }) => {
           </h5>
         </Link>
       </div>
-
     </div>
   );
 };

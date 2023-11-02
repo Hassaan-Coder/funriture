@@ -1,18 +1,5 @@
 import React, { useState } from "react";
-import Footer from "../components/Layout/Footer";
-import Header from "../components/Layout/Header";
 import styles from "../styles/styles";
-import Footer2 from "../components/Layout/Footer2";
-
-const FAQPage = () => {
-  return (
-    <div>
-      <Header activeHeading={5} />
-      <Faq />
-      <Footer2 />
-    </div>
-  );
-};
 
 const Faq = () => {
   const [activeTab, setActiveTab] = useState(0);
@@ -27,7 +14,7 @@ const Faq = () => {
 
   return (
     <div className={`${styles.section} my-8`}>
-      <h2 className="mb-8 text-3xl font-bold text-gray-900">FAQ</h2>
+      <h2 className="mb-8 text-3xl font-extrabold text-gray-900">F A Q' S</h2>
       <div className="mx-auto space-y-4">
         {/* single Faq */}
 
@@ -328,4 +315,4 @@ const Faq = () => {
   );
 };
 
-export default FAQPage;
+export default Faq;

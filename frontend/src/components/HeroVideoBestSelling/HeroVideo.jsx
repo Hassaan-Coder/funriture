@@ -29,13 +29,6 @@ export const HeroVideoBS = () => {
           Awaits!"
         </h2>
       </div>
-
-      {/* <button
-        // onClick={() => Navigate("product-listing")}
-        className="mb-10 shop-now-btn"
-      >
-        BestSelling
-      </button> */}
     </div>
   );
 };

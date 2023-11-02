@@ -12,7 +12,7 @@ const AllWithdraw = () => {
   const [data, setData] = useState([]);
   const [open, setOpen] = useState(false);
   const [withdrawData, setWithdrawData] = useState();
-  const [withdrawStatus, setWithdrawStatus] = useState("Processing");
+  const [withdrawStatus,setWithdrawStatus] = useState('Processing');
 
   useEffect(() => {
     axios
@@ -68,12 +68,11 @@ const AllWithdraw = () => {
       minWidth: 130,
       flex: 0.6,
       renderCell: (params) => {
+
         return (
           <BsPencil
             size={20}
-            className={`${
-              params.row.status !== "Processing" ? "hidden" : ""
-            } mr-5 cursor-pointer`}
+            className={`${params.row.status !== "Processing" ? 'hidden' : '' } mr-5 cursor-pointer`}
             onClick={() => setOpen(true) || setWithdrawData(params.row)}
           />
         );
@@ -83,13 +82,9 @@ const AllWithdraw = () => {
 
   const handleSubmit = async () => {
     await axios
-      .put(
-        `${server}/withdraw/update-withdraw-request/${withdrawData.id}`,
-        {
-          sellerId: withdrawData.shopId,
-        },
-        { withCredentials: true }
-      )
+      .put(`${server}/withdraw/update-withdraw-request/${withdrawData.id}`,{
+        sellerId: withdrawData.shopId,
+      },{withCredentials: true})
       .then((res) => {
         toast.success("Withdraw request updated successfully!");
         setData(res.data.withdraws);
@@ -105,13 +100,13 @@ const AllWithdraw = () => {
         id: item._id,
         shopId: item.seller._id,
         name: item.seller.name,
-        amount: "RS  " + item.amount,
+        amount: "US$ " + item.amount,
         status: item.status,
         createdAt: item.createdAt.slice(0, 10),
       });
     });
   return (
-    <div className="flex items-center justify-center w-full pt-5">
+    <div className="w-full flex items-center pt-5 justify-center">
       <div className="w-[95%] bg-white">
         <DataGrid
           rows={row}

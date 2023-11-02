@@ -1,6 +1,5 @@
 import "./HeroVideo.css";
 import ReactPlayer from "react-player";
-import { Link } from "react-router-dom";
 // import { useNavigate } from "react-router-dom";
 
 import React from "react";
@@ -29,7 +28,8 @@ export const HeroVideo = () => {
       </div>
 
       <button className="shop-now-btn">
-        <Link to="/products">Shop Now</Link>
+        <link></link>
+        Shop Now
       </button>
     </div>
   );

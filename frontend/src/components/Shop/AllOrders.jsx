@@ -75,7 +75,7 @@ const AllOrders = () => {
       row.push({
         id: item._id,
         itemsQty: item.cart.length,
-        total: "US$ " + item.totalPrice,
+        total: "RS " + item.totalPrice,
         status: item.status,
       });
     });
@@ -85,7 +85,7 @@ const AllOrders = () => {
       {isLoading ? (
         <Loader />
       ) : (
-        <div className="w-full mx-8 pt-1 mt-10 bg-white">
+        <div className="w-full pt-1 mx-8 mt-10 bg-white">
           <DataGrid
             rows={row}
             columns={columns}

@@ -13,8 +13,8 @@ const DashboardSideBar = ({ active }) => {
   return (
     <div className="w-full h-[90vh] bg-white shadow-sm overflow-y-scroll sticky top-0 left-0 z-10">
       {/* single item */}
-      <div className="w-full flex items-center p-4">
-        <Link to="/dashboard" className="w-full flex items-center">
+      <div className="flex items-center w-full p-4">
+        <Link to="/dashboard" className="flex items-center w-full">
           <RxDashboard
             size={30}
             color={`${active === 1 ? "crimson" : "#555"}`}
@@ -28,9 +28,8 @@ const DashboardSideBar = ({ active }) => {
           </h5>
         </Link>
       </div>
-
-      <div className="w-full flex items-center p-4">
-        <Link to="/dashboard-orders" className="w-full flex items-center">
+      <div className="flex items-center w-full p-4">
+        <Link to="/dashboard-orders" className="flex items-center w-full">
           <FiShoppingBag
             size={30}
             color={`${active === 2 ? "crimson" : "#555"}`}
@@ -44,9 +43,8 @@ const DashboardSideBar = ({ active }) => {
           </h5>
         </Link>
       </div>
-
-      <div className="w-full flex items-center p-4">
-        <Link to="/dashboard-products" className="w-full flex items-center">
+      <div className="flex items-center w-full p-4">
+        <Link to="/dashboard-products" className="flex items-center w-full">
           <FiPackage size={30} color={`${active === 3 ? "crimson" : "#555"}`} />
           <h5
             className={`hidden 800px:block pl-2 text-[18px] font-[400] ${
@@ -57,11 +55,10 @@ const DashboardSideBar = ({ active }) => {
           </h5>
         </Link>
       </div>
-
-      <div className="w-full flex items-center p-4">
+      <div className="flex items-center w-full p-4">
         <Link
           to="/dashboard-create-product"
-          className="w-full flex items-center"
+          className="flex items-center w-full"
         >
           <AiOutlineFolderAdd
             size={30}
@@ -77,59 +74,8 @@ const DashboardSideBar = ({ active }) => {
         </Link>
       </div>
 
-      <div className="w-full flex items-center p-4">
-        <Link to="/dashboard-events" className="w-full flex items-center">
-          <MdOutlineLocalOffer
-            size={30}
-            color={`${active === 5 ? "crimson" : "#555"}`}
-          />
-          <h5
-            className={`hidden 800px:block pl-2 text-[18px] font-[400] ${
-              active === 5 ? "text-[crimson]" : "text-[#555]"
-            }`}
-          >
-            All Events
-          </h5>
-        </Link>
-      </div>
-
-      <div className="w-full flex items-center p-4">
-        <Link to="/dashboard-create-event" className="w-full flex items-center">
-          <VscNewFile
-            size={30}
-            color={`${active === 6 ? "crimson" : "#555"}`}
-          />
-          <h5
-            className={`hidden 800px:block pl-2 text-[18px] font-[400] ${
-              active === 6 ? "text-[crimson]" : "text-[#555]"
-            }`}
-          >
-            Create Event
-          </h5>
-        </Link>
-      </div>
-
-      <div className="w-full flex items-center p-4">
-        <Link
-          to="/dashboard-withdraw-money"
-          className="w-full flex items-center"
-        >
-          <CiMoneyBill
-            size={30}
-            color={`${active === 7 ? "crimson" : "#555"}`}
-          />
-          <h5
-            className={`hidden 800px:block pl-2 text-[18px] font-[400] ${
-              active === 7 ? "text-[crimson]" : "text-[#555]"
-            }`}
-          >
-            Withdraw Money
-          </h5>
-        </Link>
-      </div>
-
-      <div className="w-full flex items-center p-4">
-        <Link to="/dashboard-messages" className="w-full flex items-center">
+      <div className="flex items-center w-full p-4">
+        <Link to="/dashboard-messages" className="flex items-center w-full">
           <BiMessageSquareDetail
             size={30}
             color={`${active === 8 ? "crimson" : "#555"}`}
@@ -143,9 +89,8 @@ const DashboardSideBar = ({ active }) => {
           </h5>
         </Link>
       </div>
-
-      <div className="w-full flex items-center p-4">
-        <Link to="/dashboard-coupouns" className="w-full flex items-center">
+      <div className="flex items-center w-full p-4">
+        <Link to="/dashboard-coupouns" className="flex items-center w-full">
           <AiOutlineGift
             size={30}
             color={`${active === 9 ? "crimson" : "#555"}`}
@@ -159,9 +104,8 @@ const DashboardSideBar = ({ active }) => {
           </h5>
         </Link>
       </div>
-
-      <div className="w-full flex items-center p-4">
-        <Link to="/dashboard-refunds" className="w-full flex items-center">
+      <div className="flex items-center w-full p-4">
+        <Link to="/dashboard-refunds" className="flex items-center w-full">
           <HiOutlineReceiptRefund
             size={30}
             color={`${active === 10 ? "crimson" : "#555"}`}
@@ -175,9 +119,8 @@ const DashboardSideBar = ({ active }) => {
           </h5>
         </Link>
       </div>
-
-      <div className="w-full flex items-center p-4">
-        <Link to="/settings" className="w-full flex items-center">
+      <div className="flex items-center w-full p-4">
+        <Link to="/settings" className="flex items-center w-full">
           <CiSettings
             size={30}
             color={`${active === 11 ? "crimson" : "#555"}`}

@@ -6,13 +6,10 @@ import {
   AiOutlineTwitter,
 } from "react-icons/ai";
 import { Link } from "react-router-dom";
-import FAQPage from "../../pages/FAQPage";
-import Faq from "../FAQ";
 
-const Footer = () => {
+const Footer2 = () => {
   return (
     <>
-      <Faq />
       <div className="bg-[#000] text-white">
         <div className="md:flex md:justify-center md:items-center sm:px-12 px-4 bg-[#e0e0e0] py-7">
           <h1 className="mb-6 text-3xl font-bold lg:text-4xl md:mb-0 lg:leading-normal md:w-2/5">
@@ -57,4 +54,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default Footer2;

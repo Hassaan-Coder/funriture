@@ -44,19 +44,17 @@ const ProductCard = ({ data, isEvent }) => {
   const removeFromWishlistHandler = (data) => {
     setClick(!click);
     dispatch(removeFromWishlist(data));
-    toast.error("Item remove from wishlist successfully!",{
-      autoClose: 1500
+    toast.error("Item remove from wishlist successfully!", {
+      autoClose: 1500,
     });
-
   };
 
   const addToWishlistHandler = (data) => {
     setClick(!click);
     dispatch(addToWishlist(data));
-    toast.success("Item added to wishlist successfully!",{
-      autoClose: 1500
+    toast.success("Item added to wishlist successfully!", {
+      autoClose: 1500,
     });
-
   };
 
   const addToCartHandler = (id) => {
@@ -69,8 +67,8 @@ const ProductCard = ({ data, isEvent }) => {
       } else {
         const cartData = { ...data, qty: 1 };
         dispatch(addTocart(cartData));
-        toast.success("Item added to cart successfully!",{
-          autoClose: 1500
+        toast.success("Item added to cart successfully!", {
+          autoClose: 1500,
         });
       }
     }
@@ -83,7 +81,7 @@ const ProductCard = ({ data, isEvent }) => {
   return (
     <>
       <div
-        className={`w-full h-[440px] bg-white rounded-lg shadow-sm p-3 relative cursor-pointer product-card  border  border-gray-500`}
+        className={`w-full h-[460px] bg-white rounded-lg shadow-sm p-3 relative cursor-pointer product-card  border  border-gray-500`}
         onMouseEnter={() => {
           swiperRef.current.swiper.autoplay.start();
         }}
@@ -101,14 +99,15 @@ const ProductCard = ({ data, isEvent }) => {
         >
           {data.images.map((image, index) => (
             <SwiperSlide key={index}>
-              {/* <Link to={`/product/${data._id}`}> */}{" "}
-              {/* Add Link to the product page */}
-              <img
-                src={image.url}
-                alt=""
-                className="w-[100%] h-[100%] object-contain  rounded-lg "
-              />
-              {/* </Link> */}
+              <Link to={`/product/${data._id}`}>
+                {" "}
+                {/* Add Link to the product page */}
+                <img
+                  src={image.url}
+                  alt=""
+                  className="w-[100%] h-[100%] object-contain  rounded-lg "
+                />
+              </Link>
             </SwiperSlide>
           ))}
         </Swiper>

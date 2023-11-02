@@ -55,7 +55,7 @@ const Payment = () => {
     cart: orderData?.cart,
     shippingAddress: orderData?.shippingAddress,
     user: user && user,
-    totalPrice: orderData?.subTotalPrice,
+    totalPrice: orderData?.totalPrice,
   };
 
   const onApprove = async (data, actions) => {
@@ -272,7 +272,7 @@ const CartData = ({ orderData }) => {
         </h5>
       </div>
       <h5 className="text-[18px] font-[600] text-end pt-3">
-        Rs {orderData?.subTotalPrice}
+        Rs {orderData?.totalPrice}
       </h5>
       <br />
     </div>
