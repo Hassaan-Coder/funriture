@@ -41,7 +41,6 @@ import {
   AdminDashboardSellers,
   AdminDashboardOrders,
   AdminDashboardProducts,
-  AdminDashboardEvents,
   AdminDashboardWithdraw,
 } from "./routes/AdminRoutes";
 import { ToastContainer } from "react-toastify";
@@ -108,9 +107,9 @@ const App = () => {
         <Route
           path="/checkout"
           element={
-            // <ProtectedRoute>
-            <CheckoutPage />
-            // </ProtectedRoute>
+            <ProtectedRoute>
+              <CheckoutPage />
+            </ProtectedRoute>
           }
         />
         <Route path="/order/success" element={<OrderSuccessPage />} />

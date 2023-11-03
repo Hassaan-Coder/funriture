@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import styles from "../../styles/styles";
-import { categoriesData, productData } from "../../static/data";
+import { categoriesData } from "../../static/data";
 import {
   AiOutlineHeart,
   AiOutlineSearch,
@@ -16,7 +16,6 @@ import { useSelector } from "react-redux";
 import Cart from "../cart/Cart";
 import Wishlist from "../Wishlist/Wishlist";
 import { RxCross1 } from "react-icons/rx";
-
 const Header = ({ activeHeading }) => {
   const { isAuthenticated, user } = useSelector((state) => state.user);
   const { isSeller } = useSelector((state) => state.seller);
@@ -33,16 +32,18 @@ const Header = ({ activeHeading }) => {
   const [searchOpen, setSearchOpen] = useState(false); // State for search bar open/close
   const searchInputRef = useRef(null);
   const [displayedProducts, setDisplayedProducts] = useState([]);
+  const [displayedCount, setDisplayedCount] = useState(3);
+  const [mobileHeaderOpen, setMobileHeaderOpen] = useState(false);
 
   const closeSearch = () => {
     setSearchOpen(false);
   };
-  const productsPerPage = 4;
+  const productsPerPage = 3;
   useEffect(() => {
     if (searchData) {
-      setDisplayedProducts(searchData.slice(0, productsPerPage));
+      setDisplayedProducts(searchData.slice(0, displayedCount));
     }
-  }, [searchData]);
+  }, [searchData, displayedCount]);
 
   // const handleLoadMore = () => {
   //   const nextIndex = displayedProducts.length + productsPerPage;
@@ -76,9 +77,18 @@ const Header = ({ activeHeading }) => {
       allProducts.filter((product) =>
         product.name.toLowerCase().includes(term.toLowerCase())
       );
+    console.log(filteredProducts); // Add this line to check if filteredProducts are correct
+
     setSearchData(filteredProducts);
     setSearchOpen(true);
   };
+
+  const navigate = useNavigate();
+
+  const handleMobileHeaderClose = () => {
+    open(false);
+  };
+
   window.addEventListener("scroll", () => {
     if (window.scrollY > 70) {
       setActive(true);
@@ -86,7 +96,9 @@ const Header = ({ activeHeading }) => {
       setActive(false);
     }
   });
-
+  // const handleLinkClick = () => {
+  //   window.location.reload(); // This will trigger a full page reload
+  // };
   return (
     <>
       <div className={`${styles.section}`}>
@@ -126,12 +138,15 @@ const Header = ({ activeHeading }) => {
                 <RxCross1 size={24} />
               </button>
             )}
-
             {searchData && searchOpen && searchData.length !== 0 ? (
-              <div className="absolute min-h-[22vh] bg-slate-50 shadow-sm-2 z-[9] p-4">
+              <div className="absolute min-h-[22vh] max-h-[200px] bg-slate-50 shadow-sm-2 z-[9] p-4">
                 <div style={{ maxHeight: "120px", overflowY: "auto" }}>
-                  {displayedProducts.map((i, index) => (
-                    <Link to={`/product/${i._id}`} key={i._id}>
+                  {searchData.map((i, index) => (
+                    <Link
+                      to={`/product/${i._id}`}
+                      key={i._id}
+                      onClick={() => navigate(`/product/${i._id}`)}
+                    >
                       <div className="flex items-start w-full py-3">
                         <img
                           src={`${i.images[0]?.url}`}
@@ -262,6 +277,7 @@ const Header = ({ activeHeading }) => {
               size={40}
               className="ml-4"
               onClick={() => setOpen(true)}
+              style={{ zIndex: 2 }}
             />
           </div>
           <div>
@@ -277,6 +293,7 @@ const Header = ({ activeHeading }) => {
             <div
               className="relative mr-[20px]"
               onClick={() => setOpenCart(true)}
+              style={{ zIndex: 2 }}
             >
               <AiOutlineShoppingCart size={30} />
               <span class="absolute right-0 top-0 rounded-full bg-[#898f8c]  w-4 h-4 top right p-0 m-0 text-white font-mono text-[12px]  leading-tight text-center">
@@ -324,27 +341,34 @@ const Header = ({ activeHeading }) => {
                   value={searchTerm}
                   onChange={handleSearchChange}
                 />
-                {searchData && (
-                  <div className="absolute bg-[#9c8e8e] z-10 shadow w-full left-0 p-3">
-                    {searchData.map((i) => {
-                      const d = i.name;
 
-                      const Product_name = d.replace(/\s+/g, "-");
-                      return (
-                        <Link to={`/product/${Product_name}`}>
-                          <div className="flex items-center">
+                {searchData && searchOpen && searchData.length !== 0 ? (
+                  <div className="absolute min-h-[10vh] bg-slate-50 shadow-sm-2 z-[9] p-4">
+                    <button
+                      className="absolute cursor-pointer top-2 right-2"
+                      onClick={() => {
+                        setSearchTerm(""); // Clear the search term
+                        setSearchOpen(false); // Close the search bar
+                      }}
+                    >
+                      <RxCross1 size={24} />
+                    </button>
+                    <div style={{ maxHeight: "120px", overflowY: "auto" }}>
+                      {searchData.map((i, index) => (
+                        <Link to={`/product/${i._id}`} key={i._id}>
+                          <div className="flex items-start w-full py-3">
                             <img
-                              src={i.image_Url[0]?.url}
+                              src={`${i.images[0]?.url}`}
                               alt=""
-                              className="w-[50px] mr-2"
+                              className="w-[40px] h-[40px] mr-[10px]"
                             />
-                            <h5>{i.name}</h5>
+                            <h1>{i.name}</h1>
                           </div>
                         </Link>
-                      );
-                    })}
+                      ))}
+                    </div>
                   </div>
-                )}
+                ) : null}
               </div>
 
               <Navbar active={activeHeading} />

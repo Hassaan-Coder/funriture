@@ -52,7 +52,7 @@ export const VideosSection = () => {
             <ReactPlayer
               // onClick={() => navigate("/product-details/76")}
               // url={`${process.env.PUBLIC_URL}/assets/videos/hero-video-4.mp4`}
-              url="https://res.cloudinary.com/dejass0mo/video/upload/v1698393493/290048344_545012660699174_212443051652188018_n_c4dcrb.mp4"
+              url="https://res.cloudinary.com/dke6w49kc/video/upload/v1698928009/202311021725_drj1hq.mp4"
               playing
               playbackRate={1.3}
               muted

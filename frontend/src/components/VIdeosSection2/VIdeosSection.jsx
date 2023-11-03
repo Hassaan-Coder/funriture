@@ -16,14 +16,14 @@ export const VideosSection2 = () => {
             <ReactPlayer
               // onClick={() => navigate("/product-details/26")}
               // url={`${process.env.PUBLIC_URL}/assets/videos/hero-video-1.mp4`}
-              url="https://res.cloudinary.com/dke6w49kc/video/upload/v1698664347/WhatsApp_Video_2023-10-30_at_15.01.54_c01c930a_V1_v3nhls.mp4"
+              url="https://res.cloudinary.com/dke6w49kc/video/upload/v1698927415/center_q2booy.mp4"
               playing
               playbackRate={1.2}
               muted
               loop
               controls={false}
               width="100%"
-              height="118%"
+              height="119%"
             />
           </Link>
           <h3 className="font-extrabold">Center Tables</h3>
@@ -54,7 +54,7 @@ export const VideosSection2 = () => {
             <ReactPlayer
               // onClick={() => navigate("/product-details/76")}
               // url={`${process.env.PUBLIC_URL}/assets/videos/hero-video-4.mp4`}
-              url="https://res.cloudinary.com/dke6w49kc/video/upload/v1698661288/WhatsApp_Video_2023-10-30_at_14.49.02_4781c97f_V1_nse5hb.mp4"
+              url="https://res.cloudinary.com/dke6w49kc/video/upload/v1698927873/202311021723_xxnhnk.mp4"
               playing
               playbackRate={1.3}
               muted
