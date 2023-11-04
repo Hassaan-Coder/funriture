@@ -1,0 +1,9 @@
+.whatsapp-button {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  background-color: #25d366; /* WhatsApp color */
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+}

@@ -64,15 +64,14 @@ const ProductDetails = ({ data }) => {
   const removeFromWishlistHandler = (data) => {
     setClick(!click);
     dispatch(removeFromWishlist(data));
-    toast.error("Item remove from wishlist successfully!",{
-      autoClose:1500
+    toast.error("Item remove from wishlist successfully!", {
+      autoClose: 1500,
     });
-
   };
   const addToWishlistHandler = (data) => {
     setClick(!click);
     dispatch(addToWishlist(data));
-    
+
     // Set the autoClose option to 1500 (1.5 seconds) to make the toast disappear after 1.5 seconds.
     toast.success("Item added to wishlist successfully!", {
       autoClose: 1500,
@@ -89,7 +88,7 @@ const ProductDetails = ({ data }) => {
       } else {
         const cartData = { ...data, qty: count };
         dispatch(addTocart(cartData));
-        toast.success("Item added to cart successfully!",{
+        toast.success("Item added to cart successfully!", {
           autoClose: 1500,
         });
       }
@@ -188,7 +187,7 @@ const ProductDetails = ({ data }) => {
                       className="px-4 py-2 ml-10 font-bold text-white transition duration-300 shadow-lg rounded-3xl bg-gradient-to-r from-slate-500 to-slate-600 hover:opacity-75 ease-in-ou"
                       onClick={decrementCount}
                     >
-                      <TbMinus/>
+                      <TbMinus />
                     </button>
                     <span className="px-4   font-[20px] !mt-10 font-extrabold text-gray-800 ">
                       {count}
@@ -197,7 +196,7 @@ const ProductDetails = ({ data }) => {
                       className="px-4 py-2 font-bold text-white transition duration-300 ease-in-out shadow-lg rounded-3xl bg-gradient-to-r from-slate-500 to-slate-600 hover:opacity-75 "
                       onClick={incrementCount}
                     >
-                      <TbPlus/>
+                      <TbPlus />
                     </button>
                   </div>
                   <div>
@@ -208,7 +207,6 @@ const ProductDetails = ({ data }) => {
                         onClick={() => removeFromWishlistHandler(data)}
                         color={click ? "red" : "#333"}
                         title="Remove from wishlist"
-                        
                       />
                     ) : (
                       <AiOutlineHeart
@@ -217,7 +215,6 @@ const ProductDetails = ({ data }) => {
                         onClick={() => addToWishlistHandler(data)}
                         color={click ? "red" : "#333"}
                         title="Add to wishlist"
-
                       />
                     )}
                   </div>
@@ -230,42 +227,10 @@ const ProductDetails = ({ data }) => {
                     Add to cart <AiOutlineShoppingCart className="ml-1" />
                   </span>
                 </div>
-                <div className="flex items-center pt-8 ml-10">
-                  <Link to={`/shop/preview/${data?.shop._id}`}>
-                    <img
-                      src={`${data?.shop?.avatar?.url}`}
-                      alt=""
-                      className="w-[60px] h-[60px] rounded-full mr-2"
-                    />
-                  </Link>
-                  <div className="pr-8">
-                    <Link to={`/shop/preview/${data?.shop._id}`}>
-                      <h3 className={`${styles.shop_name} pb-1 pt-1 ml-3`}>
-                        {data.shop.name}
-                      </h3>
-                    </Link>
-                    <h5 className="pb-3 text-[15px] ml-3">
-                      ({averageRating}/5) Ratings
-                    </h5>
-                  </div>
-                  <div
-                    className={`${styles.button} bg-[#6443d1] mt-4 !rounded !h-11`}
-                    onClick={handleMessageSubmit}
-                  >
-                    <span className="flex items-center text-white">
-                      Send Message <AiOutlineMessage className="mr-2" />
-                    </span>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
-          <ProductDetailsInfo
-            data={data}
-            products={products}
-            totalReviewsLength={totalReviewsLength}
-            averageRating={averageRating}
-          />
+          <ProductDetailsInfo data={data} products={products} />
           <br />
           <br />
         </div>
@@ -274,12 +239,7 @@ const ProductDetails = ({ data }) => {
   );
 };
 
-const ProductDetailsInfo = ({
-  data,
-  products,
-  totalReviewsLength,
-  averageRating,
-}) => {
+const ProductDetailsInfo = ({ data }) => {
   const [active, setActive] = useState(1);
 
   return (
@@ -308,19 +268,6 @@ const ProductDetailsInfo = ({
             Product Reviews
           </h5>
           {active === 2 ? (
-            <div className={`${styles.active_indicator}`} />
-          ) : null}
-        </div>
-        <div className="relative">
-          <h5
-            className={
-              "text-[#000] text-[18px] px-1 leading-5 font-[600] cursor-pointer 800px:text-[20px]"
-            }
-            onClick={() => setActive(3)}
-          >
-            Seller Information
-          </h5>
-          {active === 3 ? (
             <div className={`${styles.active_indicator}`} />
           ) : null}
         </div>
@@ -360,56 +307,6 @@ const ProductDetailsInfo = ({
           </div>
         </div>
       ) : null}
-
-      {active === 3 && (
-        <div className="block w-full p-5 800px:flex">
-          <div className="w-full 800px:w-[50%]">
-            <Link to={`/shop/preview/${data.shop._id}`}>
-              <div className="flex items-center">
-                <img
-                  src={`${data?.shop?.avatar?.url}`}
-                  className="w-[50px] h-[50px] rounded-full"
-                  alt=""
-                />
-                <div className="pl-3">
-                  <h3 className={`${styles.shop_name}`}>{data.shop.name}</h3>
-                  <h5 className="pb-2 text-[15px]">
-                    ({averageRating}/5) Ratings
-                  </h5>
-                </div>
-              </div>
-            </Link>
-            <p className="pt-2">{data.shop.description}</p>
-          </div>
-          <div className="w-full 800px:w-[50%] mt-5 800px:mt-0 800px:flex flex-col items-end">
-            <div className="text-left">
-              <h5 className="font-[600]">
-                Joined on:{" "}
-                <span className="font-[500]">
-                  {data.shop?.createdAt?.slice(0, 10)}
-                </span>
-              </h5>
-              <h5 className="font-[600] pt-3">
-                Total Products:{" "}
-                <span className="font-[500]">
-                  {products && products.length}
-                </span>
-              </h5>
-              <h5 className="font-[600] pt-3">
-                Total Reviews:{" "}
-                <span className="font-[500]">{totalReviewsLength}</span>
-              </h5>
-              <Link to="/">
-                <div
-                  className={`${styles.button} !rounded-[4px] !h-[39.5px] mt-3`}
-                >
-                  <h4 className="text-white">Visit Shop</h4>
-                </div>
-              </Link>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 };

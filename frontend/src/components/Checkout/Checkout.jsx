@@ -30,7 +30,6 @@ const Checkout = () => {
     if (
       address1 === "" ||
       address2 === "" ||
-      zipCode === null ||
       country === "Pakistan" ||
       city === ""
     ) {
@@ -181,32 +180,10 @@ const ShippingInfo = ({
             />
           </div>
           <div className="w-[50%]">
-            <label className="block pb-2">Email Address</label>
+            <label className="block pb-2">Phone Number</label>
             <input
               type="email"
               value={user && user.email}
-              required
-              className={`${styles.input}`}
-            />
-          </div>
-        </div>
-
-        <div className="flex w-full pb-3">
-          <div className="w-[50%]">
-            <label className="block pb-2">Phone Number</label>
-            <input
-              type="number"
-              required
-              value={user && user.phoneNumber}
-              className={`${styles.input} !w-[95%]`}
-            />
-          </div>
-          <div className="w-[50%]">
-            <label className="block pb-2">Zip Code</label>
-            <input
-              type="number"
-              value={zipCode}
-              onChange={(e) => setZipCode(e.target.value)}
               required
               className={`${styles.input}`}
             />
@@ -237,7 +214,7 @@ const ShippingInfo = ({
 
         <div className="flex w-full pb-3">
           <div className="w-[50%]">
-            <label className="block pb-2">Address1</label>
+            <label className="block pb-2">Full Address</label>
             <input
               type="address"
               required
@@ -247,9 +224,9 @@ const ShippingInfo = ({
             />
           </div>
           <div className="w-[50%]">
-            <label className="block pb-2">Address2</label>
+            <label className="block pb-2">Confirm Phone Number</label>
             <input
-              type="address"
+              type="number"
               value={address2}
               onChange={(e) => setAddress2(e.target.value)}
               required

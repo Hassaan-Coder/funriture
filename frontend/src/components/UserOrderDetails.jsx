@@ -26,7 +26,9 @@ const UserOrderDetails = () => {
   }, [dispatch, user._id]);
 
   const data = orders && orders.find((item) => item._id === id);
-
+  console.log(data);
+  console.log(data?.email);
+  console.log(orders);
   const reviewHandler = async (e) => {
     await axios
       .put(
@@ -65,7 +67,7 @@ const UserOrderDetails = () => {
         toast.error(error.response.data.message);
       });
   };
-
+  console.log(data?.user?.phoneNumber);
   return (
     <div className={`py-4 min-h-screen ${styles.section}`}>
       <div className="flex items-center justify-between w-full">
@@ -138,7 +140,7 @@ const UserOrderDetails = () => {
               <div>
                 <div className="pl-3 text-[20px]">{selectedItem?.name}</div>
                 <h4 className="pl-3 text-[20px]">
-                  US${selectedItem?.discountPrice} x {selectedItem?.qty}
+                  RS {selectedItem?.discountPrice} x {selectedItem?.qty}
                 </h4>
               </div>
             </div>
@@ -210,14 +212,11 @@ const UserOrderDetails = () => {
       <div className="items-center w-full 800px:flex">
         <div className="w-full 800px:w-[60%]">
           <h4 className="pt-3 text-[20px] font-[600]">Shipping Address:</h4>
-          <h4 className="pt-3 text-[20px]">
-            {data?.shippingAddress.address1 +
-              " " +
-              data?.shippingAddress.address2}
-          </h4>
+          <h4 className="pt-3 text-[20px]">{data?.shippingAddress.address1}</h4>
+          <h4 className="pt-3 text-[20px]">{data?.shippingAddress.address2}</h4>
           <h4 className=" text-[20px]">{data?.shippingAddress.country}</h4>
           <h4 className=" text-[20px]">{data?.shippingAddress.city}</h4>
-          <h4 className=" text-[20px]">{data?.user?.phoneNumber}</h4>
+          <h4 className=" text-[20px]">{data?.user?.email}</h4>
         </div>
         <div className="w-full 800px:w-[40%]">
           <h4 className="pt-3 text-[20px]">Payment Info:</h4>
@@ -237,9 +236,7 @@ const UserOrderDetails = () => {
         </div>
       </div>
       <br />
-      <Link to="/">
-        <div className={`${styles.button} text-white`}>Send Message</div>
-      </Link>
+
       <br />
       <br />
     </div>

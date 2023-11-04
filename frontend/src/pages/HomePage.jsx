@@ -11,7 +11,7 @@ import { HeroSection } from "../components/HeroSection/HeroSection";
 import { VideosSection } from "../components/VIdeosSection/VIdeosSection";
 import { HeroSection2 } from "../components/HeroSection2/HeroSection2";
 import { VideosSection2 } from "../components/VIdeosSection2/VIdeosSection";
-
+import WhatsAppButton from "../components/Whatsapp";
 
 const HomePage = () => {
   return (
@@ -20,7 +20,7 @@ const HomePage = () => {
       <HeroVideo />
 
       <HeroSection />
-
+      <WhatsAppButton />
       <VideosSection />
       <VideosSection2 />
       <HeroSection2 />

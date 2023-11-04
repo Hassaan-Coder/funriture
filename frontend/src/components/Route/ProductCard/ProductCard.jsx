@@ -119,22 +119,7 @@ const ProductCard = ({ data, isEvent }) => {
               : `/product/${data._id}`
           }
         >
-          <h5
-            className={`${styles.shop_name}   font-semibold flex items-center`}
-          >
-            <span>{data.shop.name}</span>
-            <img src={storeImage} alt="" className="ml-2 w-[26px] h-[26px]" />
-          </h5>
-        </Link>
-
-        <Link
-          to={
-            isEvent === true
-              ? `/product/${data._id}?isEvent=true`
-              : `/product/${data._id}`
-          }
-        >
-          <h4 className="pb-3  font-extrabold  text-[#333]">
+          <h4 className="pb-3 mt-5  font-extrabold  text-[#333]">
             {data.name.length > 40 ? data.name.slice(0, 40) + ".." : data.name}
           </h4>
 

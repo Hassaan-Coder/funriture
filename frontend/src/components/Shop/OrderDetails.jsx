@@ -116,14 +116,11 @@ const OrderDetails = () => {
       <div className="items-center w-full 800px:flex">
         <div className="w-full 800px:w-[60%]">
           <h4 className="pt-3 text-[20px] font-[600]">Shipping Address:</h4>
-          <h4 className="pt-3 text-[20px]">
-            {data?.shippingAddress.address1 +
-              " " +
-              data?.shippingAddress.address2}
+          <h4 className="pt-3 text-[20px]">{data?.shippingAddress.address1}</h4>
+          <h4 className=" text-[20px]">
+            {data?.shippingAddress.city} Please Call and confirm order
           </h4>
-          <h4 className=" text-[20px]">{data?.shippingAddress.country}</h4>
-          <h4 className=" text-[20px]">{data?.shippingAddress.city}</h4>
-          <h4 className=" text-[20px]">{data?.user?.phoneNumber}</h4>
+          <h4 className=" text-[20px]">{data?.user?.email}</h4>
         </div>
         <div className="w-full 800px:w-[40%]">
           <h4 className="pt-3 text-[20px]">Payment Info:</h4>

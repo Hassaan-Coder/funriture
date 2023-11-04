@@ -17,13 +17,13 @@ router.post(
   "/create-user",
   catchAsyncErrors(async (req, res, next) => {
     try {
-      const { name, email, password, avatar } = req.body;
+      const { name, phoneNumber, password, avatar } = req.body;
 
       // Log the request data for debugging
-      console.log("Request Data: ", email, password, avatar);
+      console.log("Request Data: ", phoneNumber, password, avatar);
 
       // Check if the email already exists
-      const existingUser = await User.findOne({ email });
+      const existingUser = await User.findOne({ phoneNumber });
 
       if (existingUser) {
         return next(new ErrorHandler("User already exists", 400));
@@ -40,7 +40,7 @@ router.post(
       // Create the user
       const user = await User.create({
         name,
-        email,
+        phoneNumber,
         password: hashedPassword,
         avatar: {
           public_id: myCloud.public_id,
@@ -64,13 +64,13 @@ router.post(
   "/login-user",
   catchAsyncErrors(async (req, res, next) => {
     try {
-      const { email, password } = req.body;
+      const { phoneNumber, password } = req.body;
 
-      if (!email || !password) {
+      if (!phoneNumber || !password) {
         return next(new ErrorHandler("Please provide all fields!", 400));
       }
 
-      const user = await User.findOne({ email }).select("+password");
+      const user = await User.findOne({ phoneNumber }).select("+password");
 
       if (!user) {
         return next(new ErrorHandler("User doesn't exist!", 400));
@@ -149,7 +149,7 @@ router.put(
     try {
       const { email, password, phoneNumber, name } = req.body;
 
-      const user = await User.findOne({ email }).select("+password");
+      const user = await User.findOne({ phoneNumber }).select("+password");
 
       if (!user) {
         return next(new ErrorHandler("User not found", 400));
@@ -164,7 +164,6 @@ router.put(
       }
 
       user.name = name;
-      user.email = email;
       user.phoneNumber = phoneNumber;
 
       await user.save();

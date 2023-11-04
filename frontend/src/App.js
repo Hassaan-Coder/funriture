@@ -33,7 +33,6 @@ import {
   ShopAllRefunds,
   ShopSettingsPage,
   ShopWithDrawMoneyPage,
-  ShopInboxPage,
 } from "./routes/ShopRoutes";
 import {
   AdminDashboardPage,
@@ -56,6 +55,7 @@ import axios from "axios";
 import { server } from "./server";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
+import WhatsAppButton from "./components/Whatsapp.js";
 
 const App = () => {
   const [stripeApikey, setStripeApiKey] = useState("");
@@ -73,6 +73,7 @@ const App = () => {
 
   return (
     <BrowserRouter>
+      <WhatsAppButton />
       {stripeApikey && (
         <Elements stripe={loadStripe(stripeApikey)}>
           <Routes>
@@ -231,14 +232,7 @@ const App = () => {
             </SellerProtectedRoute>
           }
         />
-        <Route
-          path="/dashboard-messages"
-          element={
-            <SellerProtectedRoute>
-              <ShopInboxPage />
-            </SellerProtectedRoute>
-          }
-        />
+
         {/* Admin Routes */}
         <Route
           path="/admin/dashboard"
