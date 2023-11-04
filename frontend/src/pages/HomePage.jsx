@@ -18,13 +18,10 @@ const HomePage = () => {
     <div>
       <Header activeHeading={1} />
       <HeroVideo />
-
       <HeroSection />
-      <WhatsAppButton />
       <VideosSection />
       <VideosSection2 />
       <HeroSection2 />
-
       {/* <Categories /> */}
       <BestDeals />
       {/* <Events /> */}
