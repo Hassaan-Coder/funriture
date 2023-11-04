@@ -1,6 +1,7 @@
 import React from "react";
 import "./WhatsAppButton.css";
 import { BsWhatsapp } from "react-icons/bs";
+
 const WhatsAppButton = () => {
   const phoneNumber = "+923222899166"; // Replace with your WhatsApp phone number
   const message = "Hello!"; // Replace with your default message
@@ -13,12 +14,12 @@ const WhatsAppButton = () => {
   };
 
   return (
-    <button
-      className="fixed z-10 p-3 text-white bg-green-500 rounded-full shadow-lg bottom-4 right-4"
-      onClick={openWhatsApp}
-    >
-      <BsWhatsapp className="text-3xl" />
-    </button>
+    <div className="fixed z-10 bottom-4 right-4">
+      <div className="whatsapp-button" onClick={openWhatsApp}>
+        <BsWhatsapp className="whatsapp-icon" />
+      </div>
+    </div>
   );
 };
+
 export default WhatsAppButton;
