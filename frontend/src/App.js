@@ -19,7 +19,6 @@ import {
   ShopLoginPage,
   OrderDetailsPage,
   TrackOrderPage,
-  UserInbox,
   Categories,
 } from "./routes/Routes.js";
 import {
@@ -122,14 +121,7 @@ const App = () => {
             </ProtectedRoute>
           }
         />
-        <Route
-          path="/inbox"
-          element={
-            <ProtectedRoute>
-              <UserInbox />
-            </ProtectedRoute>
-          }
-        />
+
         <Route
           path="/user/order/:id"
           element={

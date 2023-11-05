@@ -3,7 +3,7 @@ import "./WhatsAppButton.css";
 import { BsWhatsapp } from "react-icons/bs";
 
 const WhatsAppButton = () => {
-  const phoneNumber = "+923222899166"; // Replace with your WhatsApp phone number
+  const phoneNumber = "+923003220839"; // Replace with your WhatsApp phone number
   const message = "Hello!"; // Replace with your default message
 
   const openWhatsApp = () => {

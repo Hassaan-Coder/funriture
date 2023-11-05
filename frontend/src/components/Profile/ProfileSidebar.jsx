@@ -17,7 +17,7 @@ import { useSelector } from "react-redux";
 
 const ProfileSidebar = ({ setActive, active }) => {
   const navigate = useNavigate();
- const {user} = useSelector((state) => state.user);
+  const { user } = useSelector((state) => state.user);
   const logoutHandler = () => {
     axios
       .get(`${server}/user/logout`, { withCredentials: true })
@@ -33,7 +33,7 @@ const ProfileSidebar = ({ setActive, active }) => {
   return (
     <div className="w-full bg-white shadow-sm rounded-[10px] p-4 pt-8">
       <div
-        className="flex items-center cursor-pointer w-full mb-8"
+        className="flex items-center w-full mb-8 cursor-pointer"
         onClick={() => setActive(1)}
       >
         <RxPerson size={20} color={active === 1 ? "red" : ""} />
@@ -46,7 +46,7 @@ const ProfileSidebar = ({ setActive, active }) => {
         </span>
       </div>
       <div
-        className="flex items-center cursor-pointer w-full mb-8"
+        className="flex items-center w-full mb-8 cursor-pointer"
         onClick={() => setActive(2)}
       >
         <HiOutlineShoppingBag size={20} color={active === 2 ? "red" : ""} />
@@ -59,7 +59,7 @@ const ProfileSidebar = ({ setActive, active }) => {
         </span>
       </div>
       <div
-        className="flex items-center cursor-pointer w-full mb-8"
+        className="flex items-center w-full mb-8 cursor-pointer"
         onClick={() => setActive(3)}
       >
         <HiOutlineReceiptRefund size={20} color={active === 3 ? "red" : ""} />
@@ -73,21 +73,7 @@ const ProfileSidebar = ({ setActive, active }) => {
       </div>
 
       <div
-        className="flex items-center cursor-pointer w-full mb-8"
-        onClick={() => setActive(4) || navigate("/inbox")}
-      >
-        <AiOutlineMessage size={20} color={active === 4 ? "red" : ""} />
-        <span
-          className={`pl-3 ${
-            active === 4 ? "text-[red]" : ""
-          } 800px:block hidden`}
-        >
-          Inbox
-        </span>
-      </div>
-
-      <div
-        className="flex items-center cursor-pointer w-full mb-8"
+        className="flex items-center w-full mb-8 cursor-pointer"
         onClick={() => setActive(5)}
       >
         <MdOutlineTrackChanges size={20} color={active === 5 ? "red" : ""} />
@@ -101,7 +87,7 @@ const ProfileSidebar = ({ setActive, active }) => {
       </div>
 
       <div
-        className="flex items-center cursor-pointer w-full mb-8"
+        className="flex items-center w-full mb-8 cursor-pointer"
         onClick={() => setActive(6)}
       >
         <RiLockPasswordLine size={20} color={active === 6 ? "red" : ""} />
@@ -115,7 +101,7 @@ const ProfileSidebar = ({ setActive, active }) => {
       </div>
 
       <div
-        className="flex items-center cursor-pointer w-full mb-8"
+        className="flex items-center w-full mb-8 cursor-pointer"
         onClick={() => setActive(7)}
       >
         <TbAddressBook size={20} color={active === 7 ? "red" : ""} />
@@ -131,7 +117,7 @@ const ProfileSidebar = ({ setActive, active }) => {
       {user && user?.role === "Admin" && (
         <Link to="/admin/dashboard">
           <div
-            className="flex items-center cursor-pointer w-full mb-8"
+            className="flex items-center w-full mb-8 cursor-pointer"
             onClick={() => setActive(8)}
           >
             <MdOutlineAdminPanelSettings
@@ -149,7 +135,7 @@ const ProfileSidebar = ({ setActive, active }) => {
         </Link>
       )}
       <div
-        className="single_item flex items-center cursor-pointer w-full mb-8"
+        className="flex items-center w-full mb-8 cursor-pointer single_item"
         onClick={logoutHandler}
       >
         <AiOutlineLogin size={20} color={active === 8 ? "red" : ""} />

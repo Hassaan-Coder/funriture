@@ -79,9 +79,9 @@ const Faq = () => {
               <p className="text-[#c56262] font-Poppins">
                 2 . Item Not as Described: If the received item doesn't match
                 the product description or significantly differs from what was
-                displayed. To start a return, please call us at 03003220839 with
-                your order number and a brief explanation of the issue. We're
-                here to help with the return process in these cases
+                displayed. To start a return, please call us at +923003220839
+                with your order number and a brief explanation of the issue.
+                We're here to help with the return process in these cases
               </p>
             </div>
           )}
@@ -178,8 +178,9 @@ const Faq = () => {
             <div className="mt-4">
               <p className="text-gray-500 font-Poppins">
                 ANS: Feel free to reach out to our customer support team by
-                calling us at 03003220839 or by messaging us on WhatsApp between
-                9 am and 11 pm, seven days a week. We are here to assist you.
+                calling us at +923003220839 or by messaging us on WhatsApp
+                between 9 am and 11 pm, seven days a week. We are here to assist
+                you.
               </p>
             </div>
           )}
@@ -227,7 +228,7 @@ const Faq = () => {
             <div className="mt-4">
               <p className="text-gray-500 font-Poppins">
                 ANS: You can change or cancel your order by calling us at
-                03003220839 within 24 hours of placing it. After this 24-hour
+                +923003220839 within 24 hours of placing it. After this 24-hour
                 window, changes or cancellations will not be possible.
               </p>
             </div>

@@ -37,16 +37,21 @@ const Footer = () => {
                 href="https://www.facebook.com/Interiorimpressionsofficial"
                 target="_blank"
               >
-                <MdFacebook size={49} className="cursor-pointer" />
+                <img
+                  src="https://cdn-icons-png.flaticon.com/512/5968/5968764.png"
+                  alt="fb"
+                  className="w-[57px] h-[57px] mr-10 cursor-pointer"
+                />
               </a>
 
               <a
                 href="https://www.instagram.com/interiorimpressionsofficial"
                 target="_blank"
               >
-                <TfiInstagram
-                  size={45}
-                  style={{ marginLeft: "25px", cursor: "pointer" }}
+                <img
+                  src="https://cdn4.iconfinder.com/data/icons/social-media-2210/24/Instagram-512.png"
+                  alt="fb"
+                  className="cursor-pointer  w-[65px] h-[65px]"
                 />
               </a>
             </div>
