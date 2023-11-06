@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styles from "../../../styles/styles";
 import { useDispatch, useSelector } from "react-redux";
 import ProductDetailsCard from "../ProductDetailsCard/ProductDetailsCard";
@@ -25,13 +25,23 @@ SwiperCore.use([Navigation, Pagination, Autoplay]);
 const ProductCard = ({ data, isEvent }) => {
   const storeImage =
     "https://res.cloudinary.com/dejass0mo/image/upload/v1697877601/store_nnsnlc.webp";
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const { wishlist } = useSelector((state) => state.wishlist);
   const { cart } = useSelector((state) => state.cart);
   const [click, setClick] = useState(false);
   const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
-  const [swiperHovered, setSwiperHovered] = useState(false);
+
+  const navigate = useNavigate();
+  const productId = data._id;
+
+  const handleNavigateToProductPage = () => {
+    navigate(`/product/${productId}`);
+
+    // Reload the window after 2 seconds
+    setTimeout(() => {
+      window.location.reload();
+    }, 2000);
+  };
 
   useEffect(() => {
     if (wishlist && wishlist.find((i) => i._id === data._id)) {
@@ -60,7 +70,9 @@ const ProductCard = ({ data, isEvent }) => {
   const addToCartHandler = (id) => {
     const isItemExists = cart && cart.find((i) => i._id === id);
     if (isItemExists) {
-      toast.error("Item already in cart!");
+      toast.error("Item already in cart !", {
+        autoClose: 1500,
+      });
     } else {
       if (data.stock < 1) {
         toast.error("Product stock limited!");
@@ -99,7 +111,10 @@ const ProductCard = ({ data, isEvent }) => {
         >
           {data.images.map((image, index) => (
             <SwiperSlide key={index}>
-              <Link to={`/product/${data._id}`}>
+              <Link
+                to={`/product/${data._id}`}
+                onClick={handleNavigateToProductPage}
+              >
                 {" "}
                 {/* Add Link to the product page */}
                 <img
@@ -124,7 +139,7 @@ const ProductCard = ({ data, isEvent }) => {
           </h4>
 
           <div className="flex">
-            <Ratings rating={data?.ratings} />
+            <Ratings rating={5} />
           </div>
 
           <div className="flex items-center justify-between py-2 font-bold">

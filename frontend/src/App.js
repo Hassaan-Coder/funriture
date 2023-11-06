@@ -71,7 +71,7 @@ const App = () => {
   }, []);
 
   return (
-    <BrowserRouter>
+    <>
       <WhatsAppButton />
       {stripeApikey && (
         <Elements stripe={loadStripe(stripeApikey)}>
@@ -286,9 +286,12 @@ const App = () => {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme="dark"
+        theme="white"
+        style={{
+          color: "black", // Set the text color to black
+        }}
       />
-    </BrowserRouter>
+    </>
   );
 };
 

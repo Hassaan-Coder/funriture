@@ -33,11 +33,9 @@ SwiperCore.use([Autoplay, Pagination, Navigation]);
 const ProductDetails = ({ data }) => {
   const { wishlist } = useSelector((state) => state.wishlist);
   const { cart } = useSelector((state) => state.cart);
-  const { user, isAuthenticated } = useSelector((state) => state.user);
   const { products } = useSelector((state) => state.products);
   const [count, setCount] = useState(1);
   const [click, setClick] = useState(false);
-  const [select, setSelect] = useState(0);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [selectedImage, setSelectedImage] = useState(0);
@@ -81,7 +79,9 @@ const ProductDetails = ({ data }) => {
   const addToCartHandler = (id) => {
     const isItemExists = cart && cart.find((i) => i._id === id);
     if (isItemExists) {
-      toast.error("Item already in cart!");
+      toast.success("Item already in cart ", {
+        autoClose: 1500,
+      });
     } else {
       if (data.stock < 1) {
         toast.error("Product stock limited!");
@@ -149,7 +149,7 @@ const ProductDetails = ({ data }) => {
 
               <div className="w-full 800px:w-[50%] pt-5">
                 <h1 className={`${styles.productTitle}`}>{data.name}</h1>
-                <p className="ml-10 ">{data.description}</p>
+                <p className="ml-10 font-Poppins ">{data.description}</p>
                 <div className="flex pt-3">
                   <h4 className={`${styles.productDiscountPrice} ml-10`}>
                     {data.discountPrice} RS
@@ -226,7 +226,7 @@ const ProductDetailsInfo = ({ data }) => {
         <div className="relative">
           <h5
             className={
-              "text-[#000] text-[18px] px-1 leading-5 font-[600] cursor-pointer 800px:text-[20px]"
+              "text-[#000] text-[18px] px-1 leading-5 font-Poppins  cursor-pointer 800px:text-[20px]"
             }
             onClick={() => setActive(1)}
           >
@@ -239,7 +239,7 @@ const ProductDetailsInfo = ({ data }) => {
         <div className="relative">
           <h5
             className={
-              "text-[#000] text-[18px] px-1 leading-5 font-[600] cursor-pointer 800px:text-[20px]"
+              "text-[#000] text-[18px] px-1 leading-5  font-Poppins cursor-pointer 800px:text-[20px]"
             }
             onClick={() => setActive(2)}
           >
@@ -252,7 +252,7 @@ const ProductDetailsInfo = ({ data }) => {
       </div>
       {active === 1 ? (
         <>
-          <p className="py-2 text-[18px] leading-8 pb-10 whitespace-pre-line">
+          <p className="py-2 text-[18px] font-Poppins  leading-8 pb-10 whitespace-pre-line">
             {data.description}
           </p>
         </>

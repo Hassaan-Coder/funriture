@@ -1,5 +1,3 @@
-const bcrypt = require("bcryptjs");
-
 const express = require("express");
 const User = require("../model/user");
 const router = express.Router();
@@ -12,84 +10,70 @@ const sendToken = require("../utils/jwtToken");
 const { isAuthenticated, isAdmin } = require("../middleware/auth");
 
 // create user
-// Create user without email verification
-router.post(
-  "/create-user",
-  catchAsyncErrors(async (req, res, next) => {
-    try {
-      const { name, phoneNumber, password, avatar } = req.body;
+router.post("/create-user", async (req, res, next) => {
+  try {
+    const { name, email, password, avatar } = req.body;
+    const userEmail = await User.findOne({ email });
 
-      // Log the request data for debugging
-      console.log("Request Data: ", phoneNumber, password, avatar);
-
-      // Check if the email already exists
-      const existingUser = await User.findOne({ phoneNumber });
-
-      if (existingUser) {
-        return next(new ErrorHandler("User already exists", 400));
-      }
-
-      // Hash the password
-      const hashedPassword = await bcrypt.hash(password, 10);
-
-      // Upload the avatar to Cloudinary
-      const myCloud = await cloudinary.v2.uploader.upload(avatar, {
-        folder: "avatars",
-      });
-
-      // Create the user
-      const user = await User.create({
-        name,
-        phoneNumber,
-        password: hashedPassword,
-        avatar: {
-          public_id: myCloud.public_id,
-          url: myCloud.secure_url,
-        },
-      });
-
-      res.status(201).json({
-        success: true,
-        message: "User registered successfully!",
-      });
-    } catch (error) {
-      // Log the error for debugging
-      console.error("Error creating user: ", error);
-      return next(new ErrorHandler(error.message, 500));
+    if (userEmail) {
+      return next(new ErrorHandler("User already exists", 400));
     }
-  })
-);
+
+    const myCloud = await cloudinary.v2.uploader.upload(avatar, {
+      folder: "avatars",
+    });
+
+    const user = {
+      name: name,
+      email: email,
+      password: password,
+      avatar: {
+        public_id: myCloud.public_id,
+        url: myCloud.secure_url,
+      },
+    };
+
+    // Instead of creating an activation token and sending an email, you can directly create the user without verification
+    const newUser = new User(user);
+    await newUser.save();
+
+    // Respond with a success message
+    res.status(201).json({
+      success: true,
+      message: "User created successfully ",
+      autoClose: 1400,
+    });
+  } catch (error) {
+    return next(new ErrorHandler(error.message, 400));
+  }
+});
+
+// create activation token
+
 // login user
 router.post(
   "/login-user",
   catchAsyncErrors(async (req, res, next) => {
     try {
-      const { phoneNumber, password } = req.body;
+      const { email, password } = req.body;
 
-      if (!phoneNumber || !password) {
-        return next(new ErrorHandler("Please provide all fields!", 400));
+      if (!email || !password) {
+        return next(new ErrorHandler("Please provide the all fields!", 400));
       }
 
-      const user = await User.findOne({ phoneNumber }).select("+password");
+      const user = await User.findOne({ email }).select("+password");
 
       if (!user) {
-        return next(new ErrorHandler("User doesn't exist!", 400));
+        return next(new ErrorHandler("User doesn't exists!", 400));
       }
 
-      // Log the user's password
-      console.log("User's password: ", user.password);
-      password2 = await bcrypt.hash(password, 10);
+      const isPasswordValid = await user.comparePassword(password);
 
-      console.log(password2);
-
-      // const isPasswordValid = await user.comparePassword(password);
-      console.log("cmp", user.comparePassword(password));
-
-      // if (!isPasswordValid) {
-      //   return next(
-      //     new ErrorHandler("Please provide the correct information", 400)
-      //   );
-      // }
+      if (!isPasswordValid) {
+        return next(
+          new ErrorHandler("Please provide the correct information", 400)
+        );
+      }
 
       sendToken(user, 201, res);
     } catch (error) {
@@ -149,7 +133,7 @@ router.put(
     try {
       const { email, password, phoneNumber, name } = req.body;
 
-      const user = await User.findOne({ phoneNumber }).select("+password");
+      const user = await User.findOne({ email }).select("+password");
 
       if (!user) {
         return next(new ErrorHandler("User not found", 400));
@@ -164,6 +148,7 @@ router.put(
       }
 
       user.name = name;
+      user.email = email;
       user.phoneNumber = phoneNumber;
 
       await user.save();
@@ -289,7 +274,6 @@ router.put(
       const isPasswordMatched = await user.comparePassword(
         req.body.oldPassword
       );
-      console.log(req.body.oldPassword);
 
       if (!isPasswordMatched) {
         return next(new ErrorHandler("Old password is incorrect!", 400));
@@ -303,7 +287,6 @@ router.put(
       user.password = req.body.newPassword;
 
       await user.save();
-      console.log(user.password);
 
       res.status(200).json({
         success: true,

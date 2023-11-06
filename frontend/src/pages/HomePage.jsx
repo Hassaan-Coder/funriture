@@ -21,11 +21,14 @@ const HomePage = () => {
       <HeroSection />
       <VideosSection />
       <VideosSection2 />
-      <HeroSection2 />
       {/* <Categories /> */}
+      <HeroSection2 />
+
       <BestDeals />
+
       {/* <Events /> */}
       {/* <FeaturedProduct /> */}
+
       <Footer />
     </div>
   );

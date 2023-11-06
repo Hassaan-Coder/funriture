@@ -10,19 +10,14 @@ import { TfiInstagram } from "react-icons/tfi";
 import { Link } from "react-router-dom";
 import FAQPage from "../../pages/FAQPage";
 import Faq from "../FAQ";
+import { HeroSection2 } from "../HeroSection2/HeroSection2";
 
 const Footer = () => {
   return (
     <>
       <Faq />
+      <HeroSection2 />
       <div className="bg-[#000] text-white">
-        <div className="md:flex md:justify-center md:items-center sm:px-12 px-4 bg-[#e0e0e0] py-7">
-          <h1 className="mb-6 text-3xl font-bold lg:text-4xl md:mb-0 lg:leading-normal md:w-2/5">
-            <span className="text-[#56d879]">Contact </span>
-            <span className="text-[#080a08]"> us for Any Query </span>
-            <span className="text-[#080a08]"> "03003220839"</span>
-          </h1>
-        </div>
         <div className="grid grid-cols-1 gap-6 px-5 py-16 sm:gird-cols-3 lg:grid-cols-4 sm:px-8 sm:text-center">
           <ul className="flex flex-col items-center px-5 text-center sm:text-start sm:block">
             <img
