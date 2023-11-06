@@ -22,7 +22,8 @@ import {
   AiOutlineShoppingCart,
 } from "react-icons/ai";
 SwiperCore.use([Navigation, Pagination, Autoplay]);
-const ProductCard = ({ data, isEvent }) => {
+
+const ProductCard = ({ data, isEvent, changeProductId }) => {
   const storeImage =
     "https://res.cloudinary.com/dejass0mo/image/upload/v1697877601/store_nnsnlc.webp";
   const { wishlist } = useSelector((state) => state.wishlist);
@@ -30,18 +31,9 @@ const ProductCard = ({ data, isEvent }) => {
   const [click, setClick] = useState(false);
   const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
+  const [productId, setProductId] = useState(data._id); // Initialize productId state with the initial data._id
 
   const navigate = useNavigate();
-  const productId = data._id;
-
-  const handleNavigateToProductPage = () => {
-    navigate(`/product/${productId}`);
-
-    // Reload the window after 2 seconds
-    setTimeout(() => {
-      window.location.reload();
-    }, 2000);
-  };
 
   useEffect(() => {
     if (wishlist && wishlist.find((i) => i._id === data._id)) {
@@ -49,7 +41,7 @@ const ProductCard = ({ data, isEvent }) => {
     } else {
       setClick(false);
     }
-  }, [wishlist]);
+  }, [wishlist, data._id]);
 
   const removeFromWishlistHandler = (data) => {
     setClick(!click);
@@ -85,6 +77,12 @@ const ProductCard = ({ data, isEvent }) => {
       }
     }
   };
+  const handleNavigateToProductPage = () => {
+    changeProductId(data._id); // Set the new productId when navigating
+  };
+  useEffect(() => {
+    setProductId(data._id); // Update the productId state when data._id changes
+  }, [data._id]);
   const swiperRef = useRef(null);
   useEffect(() => {
     swiperRef.current.swiper.autoplay.stop();
