@@ -55,6 +55,7 @@ import { server } from "./server";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import WhatsAppButton from "./components/Whatsapp.js";
+import CallButton from "./components/Phone.js";
 
 const App = () => {
   const [stripeApikey, setStripeApiKey] = useState("");
@@ -72,6 +73,8 @@ const App = () => {
 
   return (
     <>
+      {" "}
+      <CallButton />
       <WhatsAppButton />
       {stripeApikey && (
         <Elements stripe={loadStripe(stripeApikey)}>
