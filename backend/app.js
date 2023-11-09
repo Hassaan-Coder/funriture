@@ -7,7 +7,7 @@ const cors = require("cors");
 
 app.use(
   cors({
-    origin: ["http://interior-impression.com", "http://localhost:3000"],
+    origin: ["http://interior-impression.com"],
     credentials: true,
   })
 );
