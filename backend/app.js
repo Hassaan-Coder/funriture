@@ -5,6 +5,13 @@ const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 
+
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', 'https://interior-impression.com');
+  // Add other headers if needed
+  next();
+});
+
 app.use(
   cors({
     origin: [
