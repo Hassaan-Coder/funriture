@@ -14,11 +14,7 @@ app.use((req, res, next) => {
 
 app.use(
   cors({
-    origin: [
-      "https://interior-impression.com",
-      "http://localhost:3000",
-      "https://interior-teal-theta.vercel.app",
-    ],
+    origin: "*", // Allow all origins for testing
     credentials: true,
   })
 );
