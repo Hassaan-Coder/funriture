@@ -6,14 +6,11 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 
 app.use((req, res, next) => {
-<<<<<<< HEAD
   res.header("Access-Control-Allow-Origin", "https://interior-impression.com");
   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
   res.header("Access-Control-Allow-Headers", "Content-Type");
-=======
-  res.header('Access-Control-Allow-Origin', 'https://interior-impression.com');
+  res.header("Access-Control-Allow-Origin", "https://interior-impression.com");
   // Add other headers if needed
->>>>>>> b14a050 (deploying)
   next();
 });
 
